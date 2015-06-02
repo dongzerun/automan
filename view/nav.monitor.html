@@ -1,0 +1,119 @@
+{% extends nav.html %}
+
+{% block common %}
+<div class="container-fluid">
+    <div class="row placeholders">
+        <div class="col-sm-3 col-md-2 sidebar">
+        <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+          <div class="panel-group" id="accordion">
+             <ul class="nav nav-sidebar nav-stacked">
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">MySQL</a>
+                             </h4>
+                                 </div>
+                                 <div id="collapseOne" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/monitor/mysql/hostslist">主机列表</a></li>
+                                    <li><a href="/monitor/mysql/findbyidc/all">all</a></li>
+                                    <li><a href="/monitor/mysql/findbyidc/yz">yz</a></li>
+                                    <li><a href="/monitor/mysql/findbyidc/sd">sd</a></li>
+                                    <li><a href="/monitor/mysql/findbyidc/M6">m6</a></li>
+                                    <li><a href="/monitor/mysql/monconf">产品线手机号</a></li>
+                                    <li><a href="/monitor/mysql/editclass">产品线编辑</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+             
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Redis</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseTwo" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/monitor/redis/hostlist">主机列表</a></li>
+                                    <li><a href="/monitor/redis/findbyidc/yz">yz</a></li>
+                                    <li><a href="/monitor/redis/findbyidc/m6">m6</a></li>
+                                    <li><a href="/monitor/redis/findbyidc/sd">sd</a></li>
+                                    <li><a href="/monitor/redis/findbyhost">主机查询</a></li>
+                                    <li><a href="/monitor/redis/memmon">内存监控</a></li>
+                                    <li><a href="/monitor/redis/monconf">监控设置</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Mongo</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseThree" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/monitor">yz</a></li>
+                                    <li><a href="/monitor">m6</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">SqlServer</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseFour" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/monitor">bw</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Celery</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseFive" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="http://10.1.6.157:8090">celery</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+             </ul>
+         </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                    var $affixElement = $('div[data-spy="affix"]');
+                    $affixElement.width($affixElement.parent().width());
+                });
+        </script>
+{% block monitor %}{% end %} 
+    </div>
+
+</div>
+
+{% end %}

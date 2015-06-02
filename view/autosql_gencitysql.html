@@ -1,0 +1,67 @@
+{% extends nav.autosql.html %}
+{% block autosql %}
+<style type="text/css">
+    .inputpadding15 {
+        padding-left : 15px !important;
+        padding-right : 15px !important;
+    }
+    .fuploadwith {
+        width : 55% !important;
+    }
+    .thcenter {
+        text-align : center !important;
+    }
+
+</style>
+<div class="col-sm-9 col-md-10 main">
+    <div class="row placeholders">
+        <div class="jumbotron">
+            <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp城市名称用'_CITIES_'代替,所有sql必须以分号结尾.如 delete from _CITIES_.tips  where id = 1; </h5>
+                        <label  class="col-sm-1  btn btn-primary" align="left">原始sql </label>
+                        <div class="controls col-sm-9">
+                            <textarea id="oldsql" class="form-control" rows="12"></textarea>
+                        </div>
+                        <div class="btn-group col-sm-offset-7">
+                        <label  id="gencityunionbtn" class="btn btn-danger inputpadding15">union all</label>
+                        <label  id="gencitybtn" class=" btn btn-danger inputpadding15">single sql</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="divider"></label>
+                        <hr />
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-1  btn btn-primary" align="left">输出</label>
+                        <div class="controls col-sm-9">
+                            <textarea id="newsql"  class="form-control" rows="42"  placeholder=""></textarea>
+                        </div>
+                    </div>
+            <script type="text/javascript">
+                $("#gencitybtn").bind("click", function () {
+                    var oldsql = $("#oldsql").val();
+                    $.post("/autosql/gensql",{oldsql:oldsql} ,function(data){
+                            if(data != ''){
+                                console.log(data);
+                                $("#newsql").val(data);
+                            }
+                    });
+                });
+                $("#gencityunionbtn").bind("click", function () {
+                    var oldsql = $("#oldsql").val();
+                    $.post("/autosql/gensqlunion",{oldsql:oldsql} ,function(data){
+                            if(data != ''){
+                                $("#newsql").val(data);
+                            }
+                    });
+                });
+            </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% end %}

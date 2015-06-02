@@ -1,0 +1,77 @@
+{% extends nav.html %}
+
+{% block common %}
+<div class="container-fluid">
+    <div class="row placeholders">
+        <div class="col-sm-3 col-md-2 sidebar">
+        <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+          <div class="panel-group" id="accordion">
+             <ul class="nav nav-sidebar nav-stacked">
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">SQL自动上线</a>
+                             </h4>
+                                 </div>
+                                 <div id="collapseOne" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/autosql/autodml">SQL自动上线</a></li>
+                                    <li><a href="/view/mysql/sqltrack">慢查询追踪</a></li>
+                                    <li><a href="/autosql/gencitysql">城市sql生成</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+             
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">线下库申请</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseTwo" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/offpriv">权限申请</a></li>
+                                    <li><a href="/offpriv/getoffbyuser">我的线下库</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">慢查询优化</a>
+                                 </h4>
+                                 </div>
+                                 <div id="collapseThree" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/autosql">慢查询分析</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+             </ul>
+         </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                    var $affixElement = $('div[data-spy="affix"]');
+                    $affixElement.width($affixElement.parent().width());
+                });
+        </script>
+{% block autosql %}{% end %}
+    </div>
+
+</div>
+
+{% end %}

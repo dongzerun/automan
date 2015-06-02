@@ -1,0 +1,277 @@
+{% extends nav.monitor.html %}
+{% block monitor %}
+<div class="col-sm-9 col-md-10 main">
+    <h3 class="page-header">MySQL监控手机号</h3>
+    <div class="row placeholders">
+<!-- Button trigger modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target="#modalconfadd">
+  添加产品线手机号
+</button>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalconfadd" tabindex="-1" role="dialog" aria-labelledby="modalconfadd_label" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="modalconfadd_label">添加产品线</h4>
+                        <label class="control-label" id="modalconfadd_id"></label>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label for="classname" class="col-sm-offset-1 col-sm-2 control-label btn-primary">产品线</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="saveclassname" value="" placeholder="">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="dayphones" class="col-sm-offset-1 col-sm-2 control-label btn-primary">白天手机</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="savedayphones" value="" placeholder="">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="nightphones" class="col-sm-offset-1 col-sm-2 control-label btn-primary">夜晚手机</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="savenightphones" value="" placeholder="">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="thread_threshold" class="col-sm-offset-1 col-sm-2 control-label btn-primary">sleep阀值</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="savethread_threshold" value="" placeholder="1000">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="modalconfadd_sub" data-dismiss="modal">提交</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+     <h2 class="sub-header"> </h2>
+     <div class="panel panel-default">
+     <div class="table-responsive">
+         <table class="table table-striped table-bordered table-hover">
+             <thead>
+             <tr class="info">
+             <th class="col-sm-1">产品线</th>
+             <th class="col-sm-3">白天手机</th>
+             <th class="col-sm-3">夜晚手机</th>
+             <th class="col-sm-1">sleep值</th>
+             <th class="col-sm-1">编辑</th>
+             </tr>
+             </thead>
+             <tbody>
+                {% for classin in classes %}
+                         <td id="{{classin['id']}}_classname" value="{{classin['class']}}">{{classin['class']}}</td>
+                         <td id="{{classin['id']}}_dayphones" value="{{classin['day_phones']}}">{{classin['day_phones']}}</td>
+                         <td id="{{classin['id']}}_nightphones" value="{{classin['night_phones']}}">{{classin['night_phones']}}</td>
+                         <td id="{{classin['id']}}_thread_threshold" value="{{classin['thread_threshold']}}">{{classin['thread_threshold']}}</td>
+                <td>                    
+                <!-- Button trigger modal -->
+                <button class="btn btn-primary" id="{{classin['id']}}_edit_btn" data-toggle="modal" data-target="#modal_monconf">
+                  编辑
+                </button>
+                </td>  
+
+
+                        </tr>
+                 {% end %}
+             </tbody>
+        </table>
+    </div>
+    </div>
+
+
+
+        <script type="text/javascript">
+            $('#modal_mon_edit').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+
+
+        $('#modal_mon_edit').on('show.bs.modal', function (e) {
+            modal_edit_saves = new Array;
+            modal_edit_saves = e.relatedTarget.id.split("_");
+            var id=modal_edit_saves[0];
+            var hostname=document.getElementById(id + "_host_tr").childNodes[0].nodeValue;
+            $("#editclasshost").attr("value", hostname)
+            $("#editclasshost").html(hostname)
+
+            var hostport=document.getElementById(id + "_port_tr").childNodes[0].nodeValue;
+            $("#editclassport").attr("value", hostport)
+            $("#editclassport").html(hostport)
+
+            var hostclass=document.getElementById(id + "_class_tr").childNodes[0].nodeValue;
+            var editclassname=document.getElementById("editclassname")
+            for(i=0;i<editclassname.length;i++){
+               if(hostclass == editclassname.options[i].value){
+                    editclassname.options[i].selected=true
+                }
+            }
+
+            var hostrole=document.getElementById(id + "_ismaster_tr").childNodes[0].nodeValue;
+            var hostrole_value;
+            if(hostrole == "slave"){
+                hostrole_value=0
+            } else if (hostrole == "master") {
+                hostrole_value=1
+            } else {
+                hostrole_value=2
+            }
+            var editclassrole=document.getElementById("editclassrole")
+            for(i=0;i<editclassrole.length;i++){
+                if(hostrole_value == editclassrole.options[i].value){
+                    editclassrole.options[i].selected=true
+                }
+            }
+
+            var hostdaylag=document.getElementById(id + "_daylag_tr").childNodes[0].nodeValue;
+            $("#editclassdaylag").attr("value", hostdaylag)
+            $("#editclassdaylag").html(hostdaylag)
+
+            var hostnightlag=document.getElementById(id + "_nightlag_tr").childNodes[0].nodeValue;
+            $("#editclassnightlag").attr("value", hostnightlag)
+            $("#editclassnightlag").html(hostnightlag)
+
+            
+            var hostcom=document.getElementById(id + "_com_tr").childNodes[0].nodeValue;
+            $("#editclasscom").attr("value", hostcom)
+            $("#editclasscom").html(hostcom)
+
+            $("#modal_mon_edit_label").html(hostname+":"+hostport+" "+hostclass)
+            $("#modal_mon_edit_monid").attr("value", id)
+        })
+        </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_save").bind("click", function () {
+                var editclassname=$("#editclassname").val();
+                var editclassrole=$("#editclassrole").val();
+                var editclasshost=$("#editclasshost").val();
+                var editclassport=$("#editclassport").val();
+                var editclassnightlag=$("#editclassnightlag").val();
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                var editclassdaylag=$("#editclassdaylag").val();
+                var editclasscom=$("#editclasscom").val();
+                $.post("/monitor/mysql/edit_mon_save",{editclassname:editclassname,editclassrole:editclassrole,editclasshost:editclasshost,editclassport:editclassport,editclassnightlag:editclassnightlag,editclassdaylag:editclassdaylag,editclasscom:editclasscom,pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_del").bind("click", function () {
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                $.post("/monitor/mysql/del_mon_save",{pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal_monconf" tabindex="-1" role="dialog" aria-labelledby="modal_monconf_label" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="modal_monconf_label"></h4>
+                        <label class="control-label" id="modal_monconf_id"></label>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label for="dayphones" class="col-sm-offset-1 col-sm-2 control-label btn-primary">白天手机</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="editdayphones" value="" placeholder="">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="nightphones" class="col-sm-offset-1 col-sm-2 control-label btn-primary">夜晚手机</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="editnightphones" value="" placeholder="">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="thread_threshold" class="col-sm-offset-1 col-sm-2 control-label btn-primary">sleep值</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="editthread_threshold" value="" placeholder="">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger pull-left" id="monconf_del" data-dismiss="modal">删除</button>
+                        <button type="button" class="btn btn-primary" id="monconf_sub" data-dismiss="modal">提交</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<script type="text/javascript">
+$('#modal_monconf').on('show.bs.modal', function (e) {
+    modal_monconf = new Array;
+    modal_monconf = e.relatedTarget.id.split("_");
+    var id=modal_monconf[0];
+    var classname=document.getElementById(id + "_classname").childNodes[0].nodeValue;
+    var dayphones=document.getElementById(id + "_dayphones").childNodes[0].nodeValue;
+    var nightphones=document.getElementById(id + "_nightphones").childNodes[0].nodeValue;
+    var thread_threshold=document.getElementById(id + "_thread_threshold").childNodes[0].nodeValue;
+   
+    console.log(dayphones);
+    console.log(nightphones);
+ 
+    $("#modal_monconf_label").html(classname);
+    $("#editdayphones").val(dayphones);
+    $("#editnightphones").val(nightphones);
+    $("#editthread_threshold").val(thread_threshold);
+    $("#modal_monconf_id").attr("value", id);
+ $("#monconf_del").bind("click", function () {
+                var classname=$("#modal_monconf_label").html();
+                $.post("/monitor/mysql/delclassconf",{classname:classname} ,function(data){});
+            });
+
+            $('#modal_monconf').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+ $("#monconf_sub").bind("click", function () {
+                var classname=$("#modal_monconf_label").html();
+                var dayphones=$("#editdayphones").val();
+                var nightphones=$("#editnightphones").val();
+                var thread_threshold=$("#editthread_threshold").val();
+                console.log("update classname " + classname);
+                console.log("update dayphones " + dayphones);
+                console.log("update dayphones " + nightphones);
+                console.log("update thread_threshold " + thread_threshold);
+                $.post("/monitor/mysql/subclassconf",{thread_threshold:thread_threshold,classname:classname,dayphones:dayphones,nightphones:nightphones} ,function(data){});
+            });
+});
+
+ $("#modalconfadd_sub").bind("click", function () {
+                var classname=$("#saveclassname").val();
+                var dayphones=$("#savedayphones").val();
+                var nightphones=$("#savenightphones").val();
+                var thread_threshold=$("#editthread_threshold").val();
+                console.log("add classname " + classname);
+                console.log("add dayphones " + dayphones);
+                console.log("add dayphones " + nightphones);
+                $.post("/monitor/mysql/saveclassconf",{thread_threshold:thread_threshold,classname:classname,dayphones:dayphones,nightphones:nightphones} ,function(data){});
+            });
+            $('#modalconfadd').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+</script>
+
+
+</div>
+{% end %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/files/favicon.ico">
+
+    <title>凹凸曼数据库管理平台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-clockpicker.min.css" rel="stylesheet">
+    <link href="/static/css/jquery-clockpicker.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/demo.css" rel="stylesheet">
+    <link href="/static/css/uploader.css" rel="stylesheet">
+    <link href="/static/css/blueimp-gallery.min.css " rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Automan</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/monitor"><strong>监控</strong></a></li>
+            <li class="active"><a href="/arch"><strong>归档</strong></a></li>
+            <li class="active"><a href="/arch"><strong>备份</strong></a></li>
+            <li class="active"><a href="/arch"><strong>视图</strong></a></li>
+            <li class="active"><a href="/arch"><strong>性能</strong></a></li>
+            <li class="active"><a href="/arch"><strong>CDC</strong></a></li>
+            <li class="active"><a href="/arch"><strong>Q4M</strong></a></li>
+            <li class="active"><a href="/arch"><strong>切库</strong></a></li>
+            <li class="active"><a href="/autosql"><strong>SQL上线</strong></a></li>
+           </ul>
+           <ul class="nav navbar-nav navbar-right navbar-inverse">
+                <li class="active"><a><strong>automan</strong></a></li>
+                <li class="active"><a href="http://sso.corp.ganji.com/Account/LogOff?id=37&returnUrl=http://automan.corp.ganji.com"><strong>[退出]</strong></a></li>
+           </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap-switch.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script src="/static/js/bootstrap-clockpicker.min.js"></script>
+    <script src="/static/js/jquery-clockpicker.min.js"></script>
+    <script src="/static/js/dmuploader.js"></script>
+    <script src="/static/js/demo.min.js"></script>
+
+
+    {% block common %}{% end %}
+    <div class="container bottom">
+    <div class="col-md-offset-5 main">
+            <p>Powered by
+                <a href="http://www.python.org/">Python</a>
+                <a href="http://www.tornadoweb.org/">Tornado</a>
+                <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>
+            <p>
+            <p>&copy; Ganji.com DBA 2014</p>
+    </div> 
+    </div>
+</body>
+</html>

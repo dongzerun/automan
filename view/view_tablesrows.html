@@ -1,0 +1,85 @@
+{% extends nav.view.html %}
+<style type="text/css">
+    .inputpadding15 {
+        padding-left : 15px !important;
+        padding-right : 15px !important;
+    }
+    .fuploadwith {
+        width : 55% !important;
+    }
+    .thcenter {
+        text-align : center !important;
+    }
+</style>
+{% block view %}
+<div class="col-sm-9 col-md-10  main">
+    <div class="row placeholders">
+
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapsesub" aria-expanded="true" aria-controls="collapsesub">
+      <u class="glyphicon glyphicon-folder-open"> automan告警订阅</u>
+        </a>
+      </h4>
+    </div>
+    <div id="collapsesub" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+            <h4>产品线</h4>
+            <div class="row">
+            {% for i in classes%}
+                <div class="checkbox-inline col-xs-6 col-lg-2" style="margin-left:10px">
+                  <label>
+                    <input class="classchecks" type="checkbox" value="{{i['class']}}">
+                      {{i['class']}} {{i['class_zh']}}
+                  </label>
+                </div>
+            {% end %}
+            </div>
+            <h4></h4>
+            <h4>监控项</h4>
+            <div class="row">
+            {% for i in metrics%}
+                <div class="checkbox-inline col-xs-6 col-lg-3" style="margin-left:10px">
+                  <label>
+                    <input class="metricchecks" type="checkbox" value="{{i['metric']}}">
+                      {{i['metric']}} {{i['metric_zh']}}
+                  </label>
+                </div>
+            {% end %}
+            </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+                 <table class="table table-responsive ">
+                     <thead>    
+                        <tr class="active info">
+                            <th class="thcenter col-sm-1">产品线</th>
+                            <th class="thcenter col-sm-2">数据库</th>
+                            <th class="thcenter col-sm-3">表名</th>
+                            <th class="thcenter col-sm-2">当前行数</th>   
+                            <th class="thcenter col-sm-1">主键</th>
+                            <th class="thcenter col-sm-3">主键类型</th> 
+                            <th class="thcenter col-sm-1">主键值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in tablerows %}
+                            <tr>
+                                  <td align="left" class="col-sm-1">{{i['classname']}}</td>
+                                  <td align="left" class="col-sm-2">{{i['dbname']}}</td>
+                                  <td align="left" class="col-sm-3">{{i['tbname']}}</td>
+                                  <td align="left" class="col-sm-2">{{i['rows']}}</td>
+                                  <td align="left" class="col-sm-1">{{i['pkname']}}</td>
+                                  <td align="left" class="col-sm-3">{{i['pktype']}}</td>
+                                  <td align="left" class="col-sm-1">{{i['pkid']}}</td>
+                            </tr>
+                        {% end %} 
+                    </tbody>
+                </table>
+</div>
+{% end %}

@@ -1,0 +1,323 @@
+{% extends nav.monitor.html %}
+{% block monitor %}
+<div class="col-sm-9 col-md-10 main">
+    <h3 class="page-header">Redis内存监控列表</h3>
+    <div class="row placeholders">
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModaladd">
+  添加监控
+</button>
+    
+<!-- Modal -->
+<div class="modal fade" id="myModaladd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加监控</h4>
+      </div>
+      <div class="modal-body">
+    
+      
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="inputclassname" class="col-sm-offset-1 col-sm-2 control-label">产品线</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="inputclassname" value="" placeholder="新的产品线名称">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputclassphones" class="col-sm-offset-1 col-sm-2 control-label">电话</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="inputclassphones" value="13381109027,15910707764,13811018735" placeholder="13381109027,15910707764,13811018735">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputclassemails" class="col-sm-offset-1 col-sm-2 control-label">邮件</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="inputclassemails" value="dba.mon@ganji.com" placeholder="dba.mon@ganji.com">
+        </div>
+    </div>
+</form>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+    <button type="submit" class="btn btn-primary pull-left" id="add_monconf_save" data-dismiss="modal">提交</button>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#myModaladd').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+            $("#add_monconf_save").bind("click", function () {
+                var inputclassname=$("#inputclassname").val();
+                var inputclassphones=$("#inputclassphones").val();
+                var inputclassemails=$("#inputclassemails").val();
+                $.post("/monitor/redis/add_monconf_save",{inputclassname:inputclassname,inputclassphones:inputclassphones,inputclassemails:inputclassemails} ,function(data){});
+            })
+        });
+    </script>
+
+
+
+     <h2 class="sub-header"> </h2>
+     <div class="panel panel-default">
+     <div class="table-responsive">
+         <table class="table table-striped table-bordered table-hover" style="table-layout: fixed;">
+             <thead>
+             <tr class="info">
+             <th style="width:150px;text-align:center">产品线</th>
+             <th style="width:500px;text-align:center">电话</th>
+             <th style="width:320px;text-align:center">邮件</th>
+             <th style="text-align:center">编辑</th>
+             </tr>
+             </thead>
+             <tbody>
+                {% for host in hosts %}
+                <td align="center" id="{{host['id']}}_class_tr" value="{{host['class']}}">{{host['class']}}</td>
+                <td align="center" id="{{host['id']}}_phones_tr" style="word-wrap:break-word" value="{{host['phones']}}">{{host['phones']}}</td>
+                <td align="center" id="{{host['id']}}_emails_tr" style="word-wrap:break-word" value="{{host['emails']}}">{{host['emails']}}</td>
+                <!-- Button trigger modal -->
+                <td align="center">                    
+                <!-- Button trigger modal -->
+                <button class="btn btn-primary" id="{{host['id']}}_edit_btn" data-toggle="modal" data-target="#modal_mon_edit">
+                  编辑
+                </button>
+                </td>  
+
+
+                        </tr>
+                 {% end %}
+             </tbody>
+        </table>
+    </div>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="modal_mon_edit" tabindex="-1" role="dialog" aria-labelledby="modal_mon_edit_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="modal_mon_edit_label"></h4>
+        <label class="control-label" id="modal_mon_edit_monid"></label>
+      </div>
+      <div class="modal-body">
+
+
+
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="classname" class="col-sm-offset-1 col-sm-2 control-label">产品线</label>
+    <div class="col-sm-6">
+    <select class="form-control" id="editclassname">
+    {% for i in redisclassname%}
+        <option>{{i['class']}}</option>
+    {% end %}    
+    </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="classphones" class="col-sm-offset-1 col-sm-2 control-label">电话</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="editclassphones" value="" placeholder="电话">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="classemails" class="col-sm-offset-1 col-sm-2 control-label">邮件</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="editclassemails" value="" placeholder="邮件">
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger pull-left" id="comm_edit_del" data-dismiss="modal">删除</button>
+        <button type="button" class="btn btn-primary pull-left" id="comm_edit_save" data-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <script type="text/javascript">
+            $('#modal_mon_edit').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+
+
+        $('#modal_mon_edit').on('show.bs.modal', function (e) {
+            modal_edit_saves = new Array;
+            modal_edit_saves = e.relatedTarget.id.split("_");
+            var id=modal_edit_saves[0];
+            var cellphones=document.getElementById(id + "_phones_tr").childNodes[0].nodeValue;
+            $("#editclassphones").attr("value", cellphones)
+            $("#editclassphones").html(cellphones)
+
+            var allemails=document.getElementById(id + "_emails_tr").childNodes[0].nodeValue;
+            $("#editclassemails").attr("value", allemails)
+            $("#editclassemails").html(allemails)
+
+            var hostclass=document.getElementById(id + "_class_tr").childNodes[0].nodeValue;
+            var editclassname=document.getElementById("editclassname")
+            for(i=0;i<editclassname.length;i++){
+               if(hostclass == editclassname.options[i].value){
+                    editclassname.options[i].selected=true
+                }
+            }
+
+
+            $("#modal_mon_edit_label").html(hostclass)
+            $("#modal_mon_edit_monid").attr("value", id)
+        })
+        </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_save").bind("click", function () {
+                var editclassname=$("#editclassname").val();
+                var editclassphones=$("#editclassphones").val();
+                var editclassemails=$("#editclassemails").val();
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                $.post("/monitor/redis/edit_mon_conf",{editclassname:editclassname,editclassphones:editclassphones,editclassemails:editclassemails,pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_del").bind("click", function () {
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                $.post("/monitor/redis/del_mon_conf",{pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal_mon_save" tabindex="-1" role="dialog" aria-labelledby="modal_mon_save_label" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="modal_mon_save_label"></h4>
+                        <label class="control-label" id="modal_mon_save_monid"></label>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label class="col-sm-offset-1 col-sm-2">内存监控维护时间</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="mon_savetime_select">
+                                    <option value="0" >开启监控</option>
+                                    <option value="3600" >维护1 小时</option>
+                                    <option value="14400">维护4 小时</option>
+                                    <option value="43200">维护12 小时</option>
+                                    <option value="86400">维护1 天</option>
+                                    <option value="259200">维护3 天</option>
+                                    <option value="604800">维护7 天</option>
+                                    </select>
+                                </div>
+
+                          </div> 
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="com_mon_save" data-dismiss="modal">提交</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<script type="text/javascript">
+            $('#modal_mon_save').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+$('#modal_mon_save').on('show.bs.modal', function (e) {
+    modal_mon_saves = new Array;
+    modal_mon_saves = e.relatedTarget.id.split("_");
+    var id=modal_mon_saves[0];
+    var hostname=document.getElementById(id + "_host_tr").childNodes[0].nodeValue;
+    var hostport=document.getElementById(id + "_port_tr").childNodes[0].nodeValue;
+    var hostclass=document.getElementById(id + "_class_tr").childNodes[0].nodeValue;
+    
+    $("#modal_mon_save_label").html(hostname+":"+hostport+" "+hostclass)
+    $("#modal_mon_save_monid").attr("value", id)
+})
+</script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#com_mon_save").bind("click", function () {
+                var montime=$("#mon_savetime_select").val();
+                var pkid=$("#modal_mon_save_monid").attr("value");
+                $.post("/monitor/redis/mem_mon_save",{montime:montime,pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        defEndTime();
+        setInterval("defEndTime()",1000);
+        });
+        function defEndTime(){
+        $(".mon_button").each(function(){
+            //$(this).attr("checked",'false');
+            var ht = $(this).html();
+            var htarr = new Array();
+            htarr = ht.split(":");
+            var m = parseInt(htarr[0],10)*3600+parseInt(htarr[1],10)*60+parseInt(htarr[2],10);
+            var h = 0;
+            var mi = 0;
+            var s = 0;
+            var hstr = '00';
+            var mistr = '00';
+            var sstr = '00';
+            if(m != 0){
+                m = m -1;
+                h = Math.floor(m/3600);
+                if(h >=100){
+                    hstr = '99';   
+                    }else if(h >= 10){
+                    hstr = h;
+                    }else{
+                    hstr = '0' +h;
+                }
+                mi = Math.floor(m%3600/60);
+                if(mi <10){
+                    mistr = '0'+mi; 
+                    }else{
+                    mistr = mi;
+                }
+                s = m%3600%60;
+                if(s <10){
+                    sstr = '0'+s;   
+                    }else{
+                    sstr = s;
+                }
+            }
+            var str = hstr+':'+mistr+':'+sstr;
+            $(this).html(str);
+        }); }; 
+    </script>
+
+</div>
+{% end %}

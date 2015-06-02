@@ -1,0 +1,64 @@
+{% extends nav.autosql.html %}
+{% block autosql %}
+<div class="col-sm-9 col-md-10 main">
+    <div class="row placeholders">
+            <div class="jumbotron">
+                <h4>"每一个sql都是一只小怪兽"----by DBA</h4>
+                <h4> 点击左侧"线下库申请"->"我的线下库"查看自己的所有权限</h4>
+                <h4> 点击导航栏"视图"->"MYSQL"->"慢查询追踪"查看所有慢sql及全表扫</h4>
+                <p><label class="control-label"><strong></strong></label></p>
+                <ul class="list-group">
+                  <li class="list-group-item">1.SQL要做到可重入, 重复执行不会改变结果</li>
+                  <li class="list-group-item">2.目前不支持回滚, 对于DDL操作要注意</li>
+                  <li class="list-group-item"><a href="/static/files/mysqldevelop_tips" target="_bank">3.数据库开发相关准则,请点击</a></li>
+                  <li class="list-group-item"><a href="http://wiki.corp.ganji.com/images/1/1b/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%89%E5%8D%81%E5%85%AD%E6%9D%A1%E5%86%9B%E8%A7%84_DBA.pdf" target="_bank">4.数据库36条军规,请点击</a></li>
+                  <li class="list-group-item">5.无相应产品线列表的,需申请相应产品线上线权限</li>
+                  <li class="list-group-item">6.对于不确定的问题, 一定要主动联系DBA</li>
+                  <li class="list-group-item">7.不符合下述条件的sql, 均不会自动提交</li>
+                  <li class="list-group-item">8.只允许做加法,对于drop操作请一定联系DBA</li>
+                </ul>
+                <p><label class="control-label"><strong>数据库规范</strong></label></p>
+                <ul class="list-group">
+                  <li class="list-group-item">1.无论表大小,drop操作要分解为truncate 和 drop</li>
+                  <li class="list-group-item">2.调整某表的自增id,无须alter table, 可以替换为insert指定数据</li>
+                  <li class="list-group-item">3.线上禁止insert into xxxx select * from xxx</li>
+                  <li class="list-group-item">4.线上禁止人为做count操作</li>
+                  <li class="list-group-item">5.线上禁止RD同学从web6操作数据库,无论增删改查</li>
+                  <li class="list-group-item">6.线上禁止从个人开发机或虚拟机操作</li>
+                  <li class="list-group-item">7.线上机器,禁止非DBA/SA登录</li>
+                </ul>
+                <p><label class="control-label"><strong>Redis上线规范</strong></label></p>
+                <ul class="list-group">
+                  <li class="list-group-item">1.所有kv类型的缓存数据禁用redis</li>
+                  <li class="list-group-item">2.线上禁止开启redis事务</li>
+                  <li class="list-group-item">3.线上禁止使用keys * 及正则匹配</li>
+                  <li class="list-group-item">4.线上禁止使用pub/sub模型,有需求咨询DBA</li>
+                  <li class="list-group-item">5.线上一律使用twemproxy,详情查看数据库WIKI</li>
+                  <li class="list-group-item">6.线上禁止非DBA/SA登录</li>
+                </ul>
+                <p><label class="control-label"><strong>DML普通sql</strong></label></p>
+                <ul class="list-group">
+                  <li class="list-group-item">1.DML操作包括insert, update, delete, replace into</li>
+                  <li class="list-group-item">2.禁止子查询, join, 及多表更新</li>
+                  <li class="list-group-item">3.禁止多值上线, 例如 insert values (),(),()</li>
+                  <li class="list-group-item">4.insert 必须显示指定字段, 否则可能执行失败</li>
+                  <li class="list-group-item">5.update, delete必须指定where条件, 并且非条件判断</li>
+                  <li class="list-group-item">6.所有DML操作的where条件,不允许是范围,必须等值操作</li>
+                  <li class="list-group-item">7.打散大sql, 必须按house_id, puid, id或account_id字段更新</li>
+                </ul>
+                <p><label class="control-label"><strong>DDL变更sql</strong></label></p>
+                <ul class="list-group">
+                  <li class="list-group-item">1.DDL变更包括建表, 加字段, 加索引等</li>
+                  <li class="list-group-item">2.建新库需要邮件DBA进行审核,一般不允许新建库</li>
+                  <li class="list-group-item">3.所有表字段必须有注释</li>
+                  <li class="list-group-item">3.所有表字段必须非空并且有默认值, not null default xxx</li>
+                  <li class="list-group-item">4.所有表必须有自增id做为主键</li>
+                  <li class="list-group-item">5.不允许指定字符集, 线上均默认为utf8</li>
+                  <li class="list-group-item">6.除了主键,没有额外索引的可能禁止通过</li>
+                  <li class="list-group-item">7.线上表, 至多一个text字段,至多三个varchar(100)</li>
+                  <li class="list-group-item">8.表引擎, 线上只允许Innodb或队列queue</li>
+                  <li class="list-group-item">8.建表语句显示指定 if not exists</li>
+                </ul>
+    </div>
+</div>
+{% end %}

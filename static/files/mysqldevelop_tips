@@ -1,0 +1,240 @@
+
+<html xmlns="//www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div style="text-align:center;">	
+	<div style="font-size:28px;"><b>MySQL数据库开发要则 V0.5</b></div>
+		<div>（杨桂香、董泽润、吴诗展整理）</div>
+
+		</div>
+<br>		
+<div class="post-bodycopy clearfix"><p>　　此文档是为开发人员制定的MySQL数据库开发规范要点，还在不断的完善中。另外，MySQL版本不断进化，也可能会导致有一些条款失效，若有这种情况发生请及时反馈给DBA：</p>
+<p><strong>一、 </strong><strong>表设计</strong></p>
+<ol>
+<li><span id="MySQL-r1-1" class="confluence-anchor-link"> </span>库名、表名、字段名<span style="color: #ff0000;">必须</span>使用小写字母，“_”分割；对相关功能的表应当使用相同前缀，如ppc_xxx，前缀通常为库名或依赖主实体对象<a href="#MySQL-1-1">【FAQ】</a></li>
+<li><span id="MySQL-r1-2" class="confluence-anchor-link"> </span>库名、表名、字段名<span style="color: #ff0000;">必须</span>少于12个字母，最好控制在7个字母内<a href="#MySQL-1-2">【FAQ】</a></li>
+<li><span id="MySQL-r1-3" class="confluence-anchor-link"> </span>库名、表名、字段名见名知意,建议使用名词而不是动词<a href="#MySQL-1-3">【FAQ】</a></li>
+<li><span id="MySQL-r1-4" class="confluence-anchor-link"> </span>新产品线建议使用InnoDB存储引擎，现有库新增表的引擎取决于实际应用场景及已存在的存储引擎<a href="#MySQL-1-4">【FAQ】</a></li>
+<li><span id="MySQL-r1-5" class="confluence-anchor-link"> </span>涉及货币或其他精度敏感的数据<span style="color: #ff0000;">必须</span>使用定点数DECIMAL替代FLOAT和DOUBLE。<a href="#MySQL-1-5">【FAQ】</a></li>
+<li><span id="MySQL-r1-7" class="confluence-anchor-link"> </span>将字符转化为数字存储，如使用INT UNSIGNED存储IP。<a href="#MySQL-1-7">【FAQ】</a></li>
+<li><span id="MySQL-r1-8" class="confluence-anchor-link"> </span>只用INT定义整形且定义中不添加长度，比如使用INT，而不是INT(4)。<a href="#MySQL-1-8">【FAQ】</a></li>
+<li><span style="color: #ff0000;">禁止</span>在数据库中使用VARBINARY、BLOB存储图片、文件等。</li>
+<li><span id="MySQL-r1-11" class="confluence-anchor-link"> </span>尽量不用TEXT、BLOB类型或拆分到单独表。<a href="#MySQL-1-11">【FAQ】</a></li>
+<li><span id="MySQL-r1-13" class="confluence-anchor-link"> </span>VARCHAR(N)，N表示的是字符数不是字节数，N尽可能小，因为MySQL一个表中所有的VARCHAR字段最大长度是65535个字节，进行排序和创建临时表一类的内存操作时，会使用N的长度申请内存。<a href="#MySQL-1-13">【FAQ】</a></li>
+<li><span id="MySQL-r1-14" class="confluence-anchor-link"> </span>库、表、字段字符集统一使用UTF8。<a href="#MySQL-1-14">【FAQ】</a></li>
+<li><span id="MySQL-r1-15" class="confluence-anchor-link"> </span>避免用保留字命名，如return、like、desc等<a href="#MySQL-1-15">【FAQ】</a></li>
+<li>控制表字段数，单表不超过和50个纯INT/20个CHAR(10)字段等同存储体积的字段数，上限控制在20~50。</li>
+<li><span id="MySQL-r1-18" class="confluence-anchor-link"> </span>存储时间（精确到秒）建议使用TIMESTAMP或INT类型，因为TIMESTAMP/INT占用4字节，DATETIME占用8个字节。<a href="#MySQL-1-18">【FAQ】</a></li>
+<li><span id="MySQL-r1-19" class="confluence-anchor-link"> </span>建议字段定义为NOT NULL，索引字段必须字义为NOT NULL。<span><a href="#MySQL-1-19">【FAQ】</a></span></li>
+<li>所有的表及字段都必须有备注，详细说明表及字段含义</li>
+<li>业务实时日志默认禁止保存到数据库，建议保存到日志文件；对于保存到数据库的日志一般对事务无要求，请使用myisam表</li>
+<li>历史数据可追朔，如对于状态数据，应当设计相应状态的字段来保存该数据的最后状态，同时记录下来该数据的初始创建人，时间以及该数据的最后修改人和修改时间（补充FAQ） </li>
+
+</ol>
+<p><strong>二、 </strong><strong><span id="MySQL-r2" class="confluence-anchor-link"> </span>索引</strong></p>
+
+<ol>
+<li>索引<span style="color: #ff0000;">必须</span>按照“idx_字段名_字段名[_字段名]”进行命名。</li>
+<li>索引名称<span style="color: #ff0000;">必须</span>使用小写。</li>
+<li>联合索引中的字段数<span style="color: #000000;">建议</span>不超过3个。</li>
+<li><span id="MySQL-r2-5" class="confluence-anchor-link"> </span>单张表的索引数量控制在字段数的20%以内。<a href="#MySQL-2-5">【FAQ】</a></li>
+<li>默认使用自增id（或者通过ID生成器获取）作为主键。</li>
+<li>唯一键不和主键重复，在innodb表中禁止使用字符串列做为主键</li>
+<li>索引字段的顺序需要考虑字段值去重之后的个数，个数多的放在前面。</li>
+<li>ORDER BY，GROUP BY，DISTINCT的字段需要添加在索引的后面。</li>
+<li>UPDATE、DELETE语句需要根据WHERE条件添加索引。</li>
+<li>禁止使用%前缀模糊查询，例如LIKE “%ganji”。</li>
+<li><span id="MySQL-r2-14" class="confluence-anchor-link"> </span>对长度过长的VARCHAR字段建立索引时，添加crc32或者MD5 Hash字段，对Hash字段建立索引,模糊匹配时使用前辍索引。<a href="#MySQL-2-14">【FAQ】</a></li>
+<li>合理创建联合索引（避免冗余），(a,b,c) 相当于 (a) 、(a,b) 、(a,b,c)。</li>
+<li><span id="MySQL-r2-16" class="confluence-anchor-link"> </span>合理利用覆盖索引。<a href="#MySQL-2-16">【FAQ】</a></li>
+<li>避免索引合并，即index merge，尽量使用联合索引，否则会出现using temporary, useing filesort消耗大量cpu。</li>
+<li>对于join操作，避免使用子查询，这样会无法利用原有索引。例如：select column1 from a left join (select column2 from b) c on a.column2=c.column2;</li>
+<li>对于join操作，提前在join字段上建立索引。</li>
+<li>线上慎用force index，使用前需要和DBA沟通，并得到DBA的测试允许。</li>
+<li>在线上OLTP系统中不使用外键，高并发时容易引起死锁等问题</li>
+<li>SQL变更需要确认索引是否需要变更并通知DBA。</li>
+
+</ol>
+<p><strong>三、 </strong><strong>SQL</strong><strong>语句</strong>(我们的小龙女MM发话了，不遵照如下规则的，<span style="color: #ff0000;">请开发帅哥自己买水送过来</span>，不客气 ^_^)</p>
+<ol>
+<li>尽量不在数据库做运算，如避免在SQL语句进行数学运算或者函数运算。</li>
+<li>拒绝3B：大SQL (BIG SQL)，大事务 (BIG Transaction)，大批量 (BIG Batch)</li>
+<li>SQL语句尽可能简单，可能一条大SQL就把整个数据库堵死，将复杂SQL拆分为多条简单SQL<a href="#MySQL-3-17">【FAQ】</a></li>
+<li>SQL语句中IN包含的值不应过多，默认不超过200个，in里禁止使用子查询。</li>
+<li><span id="MySQL-r3-3" class="confluence-anchor-link"> </span>UPDATE、DELETE语句不使用LIMIT。<a href="#MySQL-3-3">【FAQ】</a></li>
+<li><span id="MySQL-r3-4" class="confluence-anchor-link"> </span>WHERE条件中<span style="color: #ff0000;">必须</span>使用合适的类型，避免MySQL进行隐式类型转化。即数字对数字，字符对字符<a href="#MySQL-3-4">【FAQ】</a></li>
+<li><span id="MySQL-r3-6" class="confluence-anchor-link"> </span>SELECT、INSERT语句<span style="color: #ff0000;">必须</span>显式的指明字段名称，不使用SELECT *，不使用INSERT INTO table()。<a href="#MySQL-3-6">【FAQ】</a></li>
+<li>合理合并SQL，使用SELECT column_name1, column_name2 FROM table WHERE [condition]而不是SELECT column_name1 FROM table WHERE [condition]和SELECT column_name2 FROM table WHERE [condition]。</li>
+<li>WHERE条件中的非等值条件（IN、BETWEEN、&lt;、&lt;=、&gt;、&gt;=）会导致使用不了联合索引的后续字段，注意避免</li>
+<li>凌晨脚本的批量数据导入可用load data加快速度，白天批量数据导入尽量使用多值INSERT
+</li><li>INSERT语句使用batch提交（INSERT INTO table VALUES(),(),()……），values的个数不应大于200。</li>
+<li>尽可能避免使用JOIN，特别是主站等用户直接接触的产品线</li>
+<li><span id="MySQL-r3-13" class="confluence-anchor-link"> </span>参考FAQ合理减少与数据库的交互次数。<a href="#MySQL-3-13">【FAQ】</a></li>
+<li><span id="MySQL-r3-14" class="confluence-anchor-link"> </span>不使用ORDER BY RAND()，使用其他方法替换。<a href="#MySQL-3-14">【FAQ】</a></li>
+<li><span id="MySQL-r3-15" class="confluence-anchor-link"> </span>建议使用合理的分页方式以提高分页的效率。<a href="#MySQL-3-15">【FAQ】</a></li>
+<li><span style="color: #ff0000;"><span id="MySQL-r3-17" class="confluence-anchor-link"> </span>禁止</span>使用insert into tab(col1,cole2,) select col1，col2...from tab2（一 方面可能导致主从数据不一致，一方面子查询需要在每个从库上执行一次，消耗资源）</li>
+<li>避免不必要的排序，如select count(*) from tab order by col1.</li>
+<li>减少COUNT(*)，COUNT(*)的资源开销大，尽量不用少用</li>
+<li>避免使用存储过程、触发器、函数等，容易将业务逻辑和DB耦合在一起，并且MySQL的存储过程、触发器、函数中存在一定的bug。</li>
+<li>禁止未经DBA确认的子查询上线！</li>
+<li><span id="MySQL-r2-11" class="confluence-anchor-link"> </span><span style="color: #000000;">EXPLAIN</span>每一条SQL！判断是否合理使用索引，尽量避免extra列出现：Using File Sort，Using Temporary等<a href="#MySQL-2-11">【FAQ】</a></li>
+
+</ol>
+
+
+<p><strong>四、 </strong><strong>分表</strong></p>
+<ol>
+<li>对于字段类型简单，字段数不多表，单表数据量建议控制在500w以下。</li>
+<li>可以结合使用hash、range、lookup table进行分表。</li>
+<li>使用hash分表，表名后缀使用数字，数字<span style="color: #ff0000;">必须</span>从0开始并等宽，比如散100张表，后缀从00-99。</li>
+<li>使用时间分表，表名后缀<strong>必须</strong>使用特定格式，比如按日分表user_20110209、按月分表user_201102。</li>
+</ol>
+<p><strong>五、 </strong><strong>其他</strong></p>
+<ol>
+<li><span id="MySQL-r1-10" class="confluence-anchor-link"> </span>隔离线上线下，严格遵守线上连线上，线下连线下原则<a href="#MySQL-1-10">【FAQ】</a></li>
+<li>保持事务/DB连接短小精悍，原则为即开即用，用完即关</li>
+<li>读写分离：写主库，读从库，从库没有再读主库。主库的读仅考虑使用id读取。</li>
+<li>永远不在程序端显式加锁，外部锁对数据库不可控；高并发时是灾难；极难调试和排查</li>
+<li>打散大批量更新，大批量更新凌晨操作，避开高峰；白天上限默认为100条/秒（特殊再议）</li>
+<li>临时触发的批量数据更新，需要DBA进行审查，并在执行过程中观察服务，如白天恢复凌晨统计脚本，进行批量update,delete,load data。</li>
+<li>程序出现bug等影响数据库服务的问题,请及时通知DBA，便于维护服务稳定。</li>
+<li>业务部门的推广活动，请提前通知DBA进行服务和访问评估。</li>
+
+</ol>
+<p>———————————————————————————————————————————————————————————————-</p>
+<p><strong>FAQ</strong></p>
+<p style="text-align: left;"><strong><span id="MySQL-1-1" class="confluence-anchor-link"> </span>1-1.库名、表名、字段名<span style="color: #ff0000;">必须</span>使用小写字母，“_”分割。<br>
+</strong></p>
+<p>a) MySQL有配置参数lower_case_table_names，不可动态更改，linux系统默认为0，即库表名以实际情况存储，大小写敏感。如果是1，以小写存储，大小写不敏感。如果是2，以实际情况存储，但以小写比较。</p>
+<p>b) 如果大小写混合用，可能存在abc,Abc,ABC等多个表共存，容易导致混乱。</p>
+<p>c) 字段名显示区分大小写，但实际使用不区分，即不可以建立两个名字一样但大小写不一样的字段。</p>
+<p>d) 为了统一规范， 库名、表名、字段名使用小写字母。</p>
+<p><strong><strong><span id="MySQL-1-2" class="confluence-anchor-link"> </span></strong>1-2.库名、表名、字段名<span style="color: #ff0000;">必须</span>不超过12个字符。</strong></p>
+<p>库名、表名、字段名支持最多64个字符，但为了统一规范、易于辨识以及减少传输量，必须不超过12字符。</p>
+<p><strong><strong><span id="MySQL-1-3" class="confluence-anchor-link"> </span></strong>1-3.库名、表名、字段名见名知意,建议使用名词而不是动词。</strong></p>
+<p>a) 用户评论可用表名usercomment或者comment。</p>
+<p>b) 库表是一种客观存在的事物，一种对象，所以建议使用名词。</p>
+<p><strong><strong><span id="MySQL-1-4" class="confluence-anchor-link"> </span></strong></strong><strong>1-4.建议使用InnoDB存储引擎。</strong></p>
+<p>a) 5.5以后的默认引擘，支持事务，行级锁，更好的恢复性，高并发下性能更好，对多核，大内存，ssd等硬件支持更好。</p>
+<p>b) 具体比较可见附件的官方白皮书。</p>
+<p><strong><strong><span id="MySQL-1-5" class="confluence-anchor-link"> </span></strong></strong><strong>1-5.存储精确浮点数<span style="color: #ff0000;">必须</span>使用DECIMAL替代FLOAT和DOUBLE。</strong></p>
+<p>a) mysql中的数值类型（不包括整型）：<br>
+IEEE754浮点数： float  （单精度） ， double  或 real  （双精度）<br>
+定点数： decimal 或 numeric<br>
+单精度浮点数的有效数字二进制是24位，按十进制来说，是8位；双精度浮点数的有效数字二进制是53位，按十进制来说，是16 位<br>
+一个实数的有效数字超过8位，用单精度浮点数来表示的话，就会产生误差！同样，如果一个实数的有效数字超过16位，用双精度浮点数来表示，也会产生误差<br>
+b) IEEE754标准的计算机浮点数，在内部是用二进制表示的，但在将一个十进制数转换为二进制浮点数时，也会造成误差，原因是不是所有的数都能转换成有限长度的二进制数。<br>
+即一个二进制可以准确转换成十进制，但一个带小数的十进制不一定能够准确地用二进制来表示。</p>
+<p>实例：<br>
+drop table if exists t;</p>
+<p>create table t(value float(10,2));</p>
+<p>insert into t values(131072.67),(131072.68);</p>
+<p>select  value  from t;</p>
+<p>+———–+</p>
+<p>| value     |</p>
+<p>+———–+</p>
+<p>| 131072.67 |</p>
+<p>| 131072.69 |</p>
+<p>+———–+</p>
+<p><strong><span id="MySQL-1-6" class="confluence-anchor-link"> </span>1-6.建议使用UNSIGNED存储非负数值。</strong></p>
+<p>同样的字节数，存储的数值范围更大。如tinyint 有符号为 -128-127，无符号为0-255</p>
+<p><span id="MySQL-1-7" class="confluence-anchor-link"> </span>1-<strong>7. 如何使用INT UNSIGNED存储ip？</strong></p>
+<p>使用INT UNSIGNED而不是char(15)来存储ipv4地址，通过MySQL函数inet_ntoa和inet_aton来进行转化。Ipv6地址目前没有转化函数，需要使用DECIMAL或者两个bigINT来存储。例如：</p>
+<p>SELECT INET_ATON(‘209.207.224.40′);</p>
+<p>3520061480</p>
+<p>SELECT INET_NTOA(3520061480);</p>
+<p>209.207.224.40</p>
+<p><span id="MySQL-1-8" class="confluence-anchor-link"> </span><strong>1-8. INT[M]，M值代表什么含义？</strong></p>
+<p>注意数值类型括号后面的数字只是表示宽度而跟存储范围没有关系，比如INT(3)默认显示3位，空格补齐，超出时正常显示，python、java客户端等不具备这个功能。</p>
+<p><strong><span id="MySQL-1-10" class="confluence-anchor-link"> </span>1-10.隔离线上线下，严格遵守线上连线上，线下连线下原则</strong></p>
+<p>
+
+
+
+线上连线上，线下连线下原则，开发无线上库操作权限
+</p>
+<li>实时数据用real库
+</li><li>模拟环境用sim库
+</li><li>测试用qa库
+</li><li>开发用dev库
+
+
+<p></p>
+<p><strong><span id="MySQL-1-11" class="confluence-anchor-link"> </span>1-11.尽可能不使用TEXT、BLOB类型。</strong></p>
+<p>a) 索引排序问题，只能使用max_sort_length的长度或者手工指定ORDER BY SUBSTRING(column, length)的长度来排序</p>
+<p>b) Memory引擘不支持text,blog类型，会在磁盘上生成临时表</p>
+<p>c) 可能浪费更多的空间</p>
+<p>d) 可能无法使用adaptive hash index</p>
+<p>e) 导致使用where没有索引的语句变慢</p>
+<p><strong><strong><span id="MySQL-1-13" class="confluence-anchor-link"> </span></strong>1-13. VARCHAR中会产生额外存储吗？</strong></p>
+<p>VARCHAR(M)，如果M&lt;256时会使用一个字节来存储长度，如果M&gt;=256则使用两个字节来存储长度。</p>
+<p><strong><span id="MySQL-1-14" class="confluence-anchor-link"> </span>1-14.表字符集选择UTF8。</strong></p>
+<p>a) 使用utf8字符集，如果是汉字，占3个字节，但ASCII码字符还是1个字节。<br>
+b) 统一，不会有转换产生乱码风险<br>
+c) 其他地区的用户（美国、印度、台湾）无需安装简体中文支持，就能正常看您的文字，并且不会出现乱码<br>
+d) ISO-8859-1编码(latin1)使用了单字节内的所有空间，在支持ISO-8859-1的系统中传输和存储其他任何编码的字节流都不会被抛弃。即把其他任何编码的字节流当作ISO-8859-1编码看待都没有问题，保存的是原封不动的字节流。</p>
+<p><strong><strong><span id="MySQL-1-15" class="confluence-anchor-link"> </span></strong>1-15.避免用保留字命名，如return、index、desc等</strong></p>
+<p>保留字列表见：<a href="//dev.mysql.com/doc/refman/5.1/zh/language-structure.html#reserved-words" target="_black"> //dev.mysql.com/doc/refman/5.1/zh/language-structure.html#reserved-words </a></p>
+<p><span id="MySQL-1-18" class="confluence-anchor-link"> </span><strong>1-18. 为什么建议使用TIMESTAMP来存储时间而不是DATETIME？</strong></p>
+<p>DATETIME和TIMESTAMP都是精确到秒，优先选择TIMESTAMP，因为TIMESTAMP只有4个字节，而DATETIME8个字节。同时TIMESTAMP具有自动赋值以及自动更新的特性。</p>
+<p>如何使用TIMESTAMP的自动赋值属性？</p>
+<p>a)  将当前时间作为ts的默认值：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP。</p>
+<p>b)  当行更新时，更新ts的值：ts TIMESTAMP DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP。</p>
+<p>c)  可以将1和2结合起来：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP。</p>
+<p><strong><span id="MySQL-1-19" class="confluence-anchor-link"> </span>1-19.建议字段定义为NOT NULL。</strong></p>
+<p>a）如果null字段被索引，需要额外的1字节</p>
+<p>b）使索引，索引统计，值的比较变得更复杂</p>
+<p>c）可用0，”代替</p>
+<p>d）如果是索引字段，一定要定义为not null</p>
+<p><strong><strong><span id="MySQL-1-21" class="confluence-anchor-link"> </span></strong>1-21.<span style="color: #ff0000;">禁止</span>在数据库中使用VARBINARY、BLOB存储图片、文件等。</strong></p>
+<p>采用分布式文件系统更高效</p>
+<p><strong><strong><strong> </strong></strong>2. 为什么MySQL的性能依赖于索引？</strong></p>
+<p>MySQL的查询速度依赖良好的索引设计，因此索引对于高性能至关重要。合理的索引会加快查询速度（包括UPDATE和DELETE的速度，MySQL会将包含该行的page加载到内存中，然后进行UPDATE或者DELETE操作），不合理的索引会降低速度。</p>
+<p>MySQL索引查找类似于新华字典的拼音和部首查找，当拼音和部首索引不存在时，只能通过一页一页的翻页来查找。当MySQL查询不能使用索引时，MySQL会进行全表扫描，会消耗大量的IO。</p>
+<p><strong><span id="MySQL-2-5" class="confluence-anchor-link"> </span>2-5. 为什么一张表中不能存在过多的索引？</strong></p>
+<p>InnoDB的secondary index使用b+tree来存储，因此在UPDATE、DELETE、INSERT的时候需要对b+tree进行调整，过多的索引会减慢更新的速度。</p>
+<p><strong><span id="MySQL-2-11" class="confluence-anchor-link"> </span>2-11. EXPLAIN语句</strong></p>
+<p>EXPLAIN 语句（在MySQL客户端中执行）可以获得MySQL如何执行SELECT语句的信息。通过对SELECT语句执行EXPLAIN，可以知晓MySQL执 行该SELECT语句时是否使用了索引、全表扫描、临时表、排序等信息。尽量避免MySQL进行全表扫描、使用临时表、排序等。详见<a class="external-link" rel="nofollow" href="//dev.mysql.com/doc/refman/5.1/zh/optimization.html#explain">官方文档</a>。</p>
+<p><strong><span id="MySQL-2-13" class="confluence-anchor-link"> </span>2-13.不建议使用%前缀模糊查询，例如LIKE “%ganji”。</strong></p>
+<p>会导致全表扫描</p>
+<p><strong><span id="MySQL-2-14" class="confluence-anchor-link"> </span>2-14. 如何对长度大于50的VARCHAR字段建立索引？</strong></p>
+<p>下面的表增加一列url_crc32，然后对url_crc32建立索引，减少索引字段的长度，提高效率。</p>
+<ul>
+<li>CREATE TABLE url(</li>
+</ul>
+<p>……</p>
+<p>url VARCHAR(255) NOT NULL DEFAULT 0,<br>
+url_crc32 INT UNSIGNED NOT NULL DEFAULT 0,</p>
+<p>……</p>
+<p>index idx_url(url_crc32)</p>
+<p>)</p>
+<p><strong><span id="MySQL-2-16" class="confluence-anchor-link"> </span>2-16. 什么是覆盖索引？</strong></p>
+<p>InnoDB 存储引擎中，secondary index（非主键索引）中没有直接存储行地址，存储主键值。如果用户需要查询secondary index中所不包含的数据列时，需要先通过secondary index查找到主键值，然后再通过主键查询到其他数据列，因此需要查询两次。</p>
+<p>覆盖索引的概念就是查询可以通过在一个索引中完成，覆盖索引效率会比较高，主键查询是天然的覆盖索引。</p>
+<p>合理的创建索引以及合理的使用查询语句，当使用到覆盖索引时可以获得性能提升。</p>
+<p>比如SELECT email,uid FROM user_email WHERE uid=xx，如果uid不是主键，适当时候可以将索引添加为index(uid,email)，以获得性能提升。</p>
+<p><strong><span id="MySQL-3-3" class="confluence-anchor-link"> </span>3-3.UPDATE、DELETE语句不使用LIMIT。</strong></p>
+<p>a) 可能导致主从数据不一致</p>
+<p>b) 会记录到错误日志，导致日志占用大量空间</p>
+<p><strong><span id="MySQL-3-4" class="confluence-anchor-link"> </span>3-4. 为什么需要避免MySQL进行隐式类型转化？</strong></p>
+<p>因为MySQL进行隐式类型转化之后，可能会将索引字段类型转化成=号右边值的类型，导致使用不到索引，原因和避免在索引字段中使用函数是类似的。</p>
+<p><strong><span id="MySQL-3-6" class="confluence-anchor-link"> </span>3-6. 为什么不建议使用SELECT *?</strong></p>
+<p>增加很多不必要的消耗（cpu、io、内存、网络带宽）；减少了使用覆盖索引的可能性；当表结构发生改变时，前端代码可能也需要更新。</p>
+<p><strong><span id="MySQL-3-13" class="confluence-anchor-link"> </span>3-13. 如何减少与数据库的交互次数？</strong></p>
+<p>使用下面的语句来减少和db的交互次数：</p>
+<p>INSERT … ON DUPLICATE KEY UPDATE</p>
+<p>REPLACE</p>
+<p>INSERT IGNORE</p>
+<p>INSERT INTO values(),()如何结合使用多个纬度进行分表散库？</p>
+<p>例如message，先按照crc32(message_id)%16将message散到16个库中，然后针对每个库中的表，一天生成一张新表。</p>
+<p><strong><span id="MySQL-3-14" class="confluence-anchor-link"> </span>3-14. 为什么不能使用ORDER BY rand()？</strong></p>
+<p>因为ORDER BY rand()会将数据从磁盘中读取，进行排序，会消耗大量的IO和CPU，可以在程序中获取一个rand值，然后通过在从数据库中获取对应的值。</p>
+<p><strong><span id="MySQL-3-15" class="confluence-anchor-link"> </span>3-15. MySQL中如何进行分页？</strong></p>
+<p>假如有类似下面分页语句：</p>
+<p>SELECT * FROM table ORDER BY TIME DESC LIMIT 10000,10;</p>
+<p>这种分页方式会导致大量的io，因为MySQL使用的是提前读取策略。</p>
+<p>推荐分页方式：</p>
+<p>SELECT * FROM table WHERE TIME&lt;last_TIME ORDER BY TIME DESC LIMIT 10.</p>
+<p>SELECT * FROM table inner JOIN(SELECT id FROM table ORDER BY TIME LIMIT 10000,10) as t USING(id)</p>
+<p><strong><span id="MySQL-3-17" class="confluence-anchor-link"> </span>3-17.为什么避免使用复杂的SQL？</strong></p>
+<p>拒绝使用复杂的SQL，将大的SQL拆分成多条简单SQL分步执行。原因：简单的SQL容易使用到MySQL的query cache；减少锁表时间特别是MyISAM；可以使用多核cpu。</p>
+
+
+</body></html>

@@ -1,0 +1,341 @@
+WARNING: /data/mysql/automan/handler/asynctasks/parser.py:1656: Rule 'replace_lock_option' defined, but not used
+WARNING: There is 1 unused rule
+WARNING: Symbol 'replace_lock_option' is unreachable
+WARNING: Symbol 'opt_low_priority' is unreachable
+[I 140918 12:34:41 consumer:51] Connecting to amqp://guest:guest@localhost:5672/%2F
+[I 140918 12:34:41 base_connection:179] Connecting to 127.0.0.1:5672
+[I 140918 12:34:41 base_connection:179] Connecting to 127.0.0.1:5672
+[I 140918 12:34:41 consumer:94] Connection opened
+[I 140918 12:34:41 consumer:65] Adding connection close callback
+[I 140918 12:34:41 consumer:313] Creating a new channel
+[I 140918 12:34:41 consumer:141] Channel opened
+[I 140918 12:34:41 consumer:113] Adding channel close callback
+[I 140918 12:34:41 consumer:154] Declaring exchange automan_websocket
+[I 140918 12:34:41 consumer:166] Exchange declared
+[I 140918 12:34:41 consumer:177] Declaring queue for_websocket
+[I 140918 12:34:41 consumer:191] Binding automan_websocket to for_websocket with for_websocket
+[I 140918 12:34:41 consumer:296] Queue bound
+[I 140918 12:34:41 consumer:283] Issuing consumer related RPC commands
+[I 140918 12:34:41 consumer:201] Adding consumer cancellation callback
+[I 140918 12:36:38 autoreload:191] automan.py modified; restarting server
+WARNING: /data/mysql/automan/handler/asynctasks/parser.py:1656: Rule 'replace_lock_option' defined, but not used
+WARNING: There is 1 unused rule
+WARNING: Symbol 'replace_lock_option' is unreachable
+WARNING: Symbol 'opt_low_priority' is unreachable
+[I 140918 12:36:40 consumer:51] Connecting to amqp://guest:guest@localhost:5672/%2F
+[I 140918 12:36:40 base_connection:179] Connecting to 127.0.0.1:5672
+[I 140918 12:36:40 base_connection:179] Connecting to 127.0.0.1:5672
+[I 140918 12:36:40 consumer:94] Connection opened
+[I 140918 12:36:40 consumer:65] Adding connection close callback
+[I 140918 12:36:40 consumer:313] Creating a new channel
+[I 140918 12:36:40 consumer:141] Channel opened
+[I 140918 12:36:40 consumer:113] Adding channel close callback
+[I 140918 12:36:40 consumer:154] Declaring exchange automan_websocket
+[I 140918 12:36:40 consumer:166] Exchange declared
+[I 140918 12:36:40 consumer:177] Declaring queue for_websocket
+[I 140918 12:36:40 consumer:191] Binding automan_websocket to for_websocket with for_websocket
+[I 140918 12:36:40 consumer:296] Queue bound
+[I 140918 12:36:40 consumer:283] Issuing consumer related RPC commands
+[I 140918 12:36:40 consumer:201] Adding consumer cancellation callback
+[I 140918 12:37:10 web:1728] 200 GET / (192.168.113.160) 16.44ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/bootstrap.min.css (192.168.113.160) 12.60ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/navbar-fixed-top.css (192.168.113.160) 0.93ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/bootstrap-switch.min.css (192.168.113.160) 1.25ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/bootstrap-clockpicker.min.css (192.168.113.160) 1.26ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/bootstrap-select.min.css (192.168.113.160) 1.22ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/jquery-clockpicker.min.css (192.168.113.160) 1.29ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/style.css (192.168.113.160) 0.97ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/demo.css (192.168.113.160) 1.03ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/uploader.css (192.168.113.160) 1.01ms
+[I 140918 12:37:10 web:1728] 200 GET /static/css/blueimp-gallery.min.css (192.168.113.160) 1.26ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/bootstrap-select.min.js (192.168.113.160) 2.54ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/bootstrap-switch.min.js (192.168.113.160) 1.63ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/bootstrap-clockpicker.min.js (192.168.113.160) 1.67ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/bootstrap.min.js (192.168.113.160) 3.71ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/jquery.min.js (192.168.113.160) 10.52ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/jquery-clockpicker.min.js (192.168.113.160) 1.64ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/demo.min.js (192.168.113.160) 1.04ms
+[I 140918 12:37:10 web:1728] 200 GET /static/js/dmuploader.js (192.168.113.160) 1.61ms
+[I 140918 12:37:10 web:1728] 200 GET /static/files/favicon.ico (192.168.113.160) 1.57ms
+[I 140918 12:37:16 web:1728] 200 GET /monitor (192.168.113.160) 134.49ms
+[I 140918 12:37:18 web:1728] 200 GET /monitor/redis/findbyidc/yz (192.168.113.160) 53.84ms
+['__call__', '__class__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_get_host_handlers', '_load_ui_methods', '_load_ui_modules', '_wsgi', 'add_handlers', 'add_transform', 'default_host', 'handlers', 'listen', 'log_request', 'named_handlers', 'reverse_url', 'settings', 'transforms', 'ui_methods', 'ui_modules']
+{'autoreload': True, 'static_hash_cache': False, 'template_path': 'view', 'serve_traceback': True, 'tw': {}, 'gzip': True, 'wt': {}, 'debug': True, 'compiled_template_cache': False, 'static_path': 'static'}
+{'fullname': u'\u8463\u6cfd\u6da6', 'email': u'dongzerun@ganji.com', 'enname': u'dongzerun'}
+<type 'list'>
+[{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}, {'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}, {'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}, {'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}, {'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}, {'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f66'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}]
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}
+{'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}
+{'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}
+{'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}
+{'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}
+{'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f66'}
+{'name': u'dongzerun', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u[I 140918 12:37:26 web:1728] 200 GET /autosql (192.168.113.160) 28.73ms
+[I 140918 12:37:26 web:1728] 200 GET /monitor/mysql/hostslist (192.168.113.160) 124.00ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/bootstrap-switch.min.css (192.168.113.160) 1.36ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/style.css (192.168.113.160) 0.95ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/jquery-clockpicker.min.css (192.168.113.160) 1.27ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/demo.css (192.168.113.160) 1.02ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/bootstrap-clockpicker.min.css (192.168.113.160) 1.09ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/bootstrap-select.min.css (192.168.113.160) 1.22ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/uploader.css (192.168.113.160) 1.02ms
+[I 140918 12:37:26 web:1728] 200 GET /static/css/blueimp-gallery.min.css (192.168.113.160) 1.26ms
+[I 140918 12:37:26 web:1728] 200 GET /static/js/bootstrap-select.min.js (192.168.113.160) 2.37ms
+[I 140918 12:37:26 web:1728] 304 GET /static/css/bootstrap.min.css (192.168.113.160) 1.17ms
+[I 140918 12:37:26 web:1728] 304 GET /static/css/navbar-fixed-top.css (192.168.113.160) 0.72ms
+[I 140918 12:37:26 web:1728] 200 GET /static/js/dmuploader.js (192.168.113.160) 1.48ms
+[I 140918 12:37:26 web:1728] 200 GET /static/js/jquery-clockpicker.min.js (192.168.113.160) 1.67ms
+[I 140918 12:37:26 web:1728] 200 GET /static/js/bootstrap-clockpicker.min.js (192.168.113.160) 1.64ms
+[I 140918 12:37:26 web:1728] 304 GET /static/js/bootstrap.min.js (192.168.113.160) 0.84ms
+[I 140918 12:37:26 web:1728] 200 GET /static/js/demo.min.js (192.168.113.160) 1.02ms
+[I 140918 12:37:26 web:1728] 304 GET /static/js/bootstrap-switch.min.js (192.168.113.160) 0.77ms
+[I 140918 12:37:26 web:1728] 304 GET /static/js/jquery.min.js (192.168.113.160) 1.03ms
+[I 140918 12:37:27 web:1728] 200 GET /static/files/favicon.ico (192.168.113.160) 1.53ms
+'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}
+{'fullname': u'\u8463\u6cfd\u6da6', 'email': u'dongzerun@ganji.com', 'enname': u'dongzerun'}
+<type 'list'>
+[{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}, {'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}, {'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}, {'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}, {'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}, {'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f66'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}]
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}
+{'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}
+{'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}
+{'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}
+{'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}
+{'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f66'}
+{'name': u'dongzerun[I 140918 12:37:29 web:1728] 200 GET /autosql/autodml (192.168.113.160) 30.18ms
+[I 140918 12:37:30 web:1728] 200 GET /static/fonts/glyphicons-halflings-regular.woff (192.168.113.160) 2.71ms
+[I 140918 12:38:44 consumer:241] Received message # 1 from None: {"data": "TaskID: 522 autosql files list: \n/tmp//20140918//dongzerun_bamXsp_522_bamXsp_522", "type": "sqlsave", "success": 1, "task_id": "522"}
+[I 140918 12:38:44 consumer:223] Acknowledging message 1
+[I 140918 12:38:44 consumer:241] Received message # 2 from None: {"data": "TaskID: 522 \u8bed\u6cd5\u89e3\u6790\u5b8c\u6210", "type": "sqlparser", "success": 1, "task_id": "522"}
+', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}
+<type 'unicode'>
+<type 'str'>
+dongzerun
+replace into autosql_ddl_tasks (task_id,classname,applicant,description,task_status) values ('522','price','dongzerun','test','1');
+dmlsql is: update bi_marketing.demand_info set name="BI-449 9月18日房产旺季活动发送短信置顶1" where id=158; <type 'str'>
+522
+replace into dba_stats.autosql_tasks_files (task_id, file_url) values ('522','/tmp//20140918//dongzerun_bamXsp_522_bamXsp_522');
+dmlclass is : price
+<type 'str'>
+522 <type 'int'>
+<type 'str'>
+522 <type '[I 140918 12:38:44 consumer:223] Acknowledging message 2
+[I 140918 12:38:44 consumer:241] Received message # 3 from None: {"data": "TaskID: 522 \u8fc7\u6ee4\u89c4\u5219\u5b8c\u6210", "type": "ruleparser", "success": 1, "task_id": "522"}
+[I 140918 12:38:44 consumer:223] Acknowledging message 3
+[I 140918 12:38:44 consumer:241] Received message # 4 from None: {"data": "TaskID: 522 sim \u9884\u6267\u884c\u6210\u529f", "type": "sim", "success": 1, "task_id": "522"}
+[I 140918 12:38:44 consumer:223] Acknowledging message 4
+[I 140918 12:38:44 consumer:241] Received message # 5 from None: {"data": "TaskID: 522 sql\u5907\u4efd\u6210\u529f", "type": "sqlbak", "success": 1, "task_id": "522"}
+[I 140918 12:38:44 consumer:223] Acknowledging message 5
+[I 140918 12:38:44 consumer:241] Received message # 6 from None: {"data": "TaskID: 522 online\u7ebf\u4e0a\u6267\u884c\u6210\u529f", "type": "online", "success": 1, "task_id": "522"}
+[I 140918 12:38:44 consumer:223] Acknowledging message 6
+[W 140918 12:39:43 web:1728] 404 GET /static/js/jquery-2.0.3.min.map (192.168.113.160) 2.24ms
+int'>
+<type 'str'>
+522 <type 'int'>
+<type 'str'>
+522 <type 'int'>
+<type 'str'>
+522 <type 'int'>
+<type 'str'>
+522 <type 'int'>
+{'fullname': u'\u8463\u6cfd\u6da6', 'email': u'dongzerun@ganji.com', 'enname': u'dongzerun'}
+<type 'list'>
+[{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}, {'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}, {'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}, {'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}, {'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}, {'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}, {'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}, {'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f66'}, {'name': u'dongzerun', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}, {'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}, {'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}, {'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}, {'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}, {'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}, {'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}, {'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}, {'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}, {'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}, {'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}, {'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}, {'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}, {'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}, {'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}, {'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}, {'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}, {'name': u'dongzerun', 'class_en': u'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}]
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3310L, 'env_type': 1L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'jxq-off-ku-qa00', 'port': 3320L, 'env_type': 1L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'ms', 'hostname': u'g1-off-ku-real', 'port': 3310L, 'env_type': 0L, 'class_zh': u'\u4e3b\u7ad9'}
+{'name': u'dongzerun', 'class_en': u'tg', 'hostname': u'g1-off-ku-real', 'port': 3320L, 'env_type': 0L, 'class_zh': u'\u63a8\u5e7f'}
+{'name': u'dongzerun', 'class_en': u'3ms', 'hostname': u'jxq-off-ku-qa00', 'port': 3312L, 'env_type': 1L, 'class_zh': u'3ms'}
+{'name': u'dongzerun', 'class_en': u'arch', 'hostname': u'jxq-off-ku-qa00', 'port': 3360L, 'env_type': 1L, 'class_zh': u'\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'as', 'hostname': u'jxq-off-ku-qa00', 'port': 3890L, 'env_type': 1L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bbs', 'hostname': u'jxq-off-ku-qa00', 'port': 3370L, 'env_type': 1L, 'class_zh': u'bbs'}
+{'name': u'dongzerun', 'class_en': u'boss', 'hostname': u'jxq-off-ku-qa00', 'port': 3880L, 'env_type': 1L, 'class_zh': u'boss'}
+{'name': u'dongzerun', 'class_en': u'club', 'hostname': u'jxq-off-ku-qa00', 'port': 3371L, 'env_type': 1L, 'class_zh': u'club'}
+{'name': u'dongzerun', 'class_en': u'com', 'hostname': u'jxq-off-ku-qa00', 'port': 3830L, 'env_type': 1L, 'class_zh': u'com'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'jxq-off-ku-qa00', 'port': 3810L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'jxq-off-ku-qa00', 'port': 3840L, 'env_type': 1L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'jxq-off-ku-qa00', 'port': 3330L, 'env_type': 1L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'go', 'hostname': u'jxq-off-ku-qa00', 'port': 3390L, 'env_type': 1L, 'class_zh': u'\u56e2\u8d2d'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'jxq-off-ku-qa00', 'port': 3820L, 'env_type': 1L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'jxq-off-ku-qa00', 'port': 3800L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'jymsg', 'hostname': u'jxq-off-ku-qa00', 'port': 3802L, 'env_type': 1L, 'class_zh': u'\u4ea4\u53cb\u79c1\u4fe1\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'jxq-off-ku-qa00', 'port': 3350L, 'env_type': 1L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'jxq-off-ku-qa00', 'port': 3311L, 'env_type': 1L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'jxq-off-ku-qa00', 'port': 3870L, 'env_type': 1L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'qe', 'hostname': u'jxq-off-ku-qa00', 'port': 3309L, 'env_type': 1L, 'class_zh': u'\u961f\u5217'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'jxq-off-ku-qa00', 'port': 3380L, 'env_type': 1L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'jxq-off-ku-qa00', 'port': 3400L, 'env_type': 1L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'jxq-off-ku-qa00', 'port': 3321L, 'env_type': 1L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'jxq-off-ku-qa00', 'port': 3340L, 'env_type': 1L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'jxq-off-ku-qa00', 'port': 3341L, 'env_type': 1L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'jxq-off-ku-qa00', 'port': 3342L, 'env_type': 1L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'jxq-off-ku-qa00', 'port': 3343L, 'env_type': 1L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'xs', 'hostname': u'jxq-off-ku-qa00', 'port': 3850L, 'env_type': 1L, 'class_zh': u'\u60ac\u8d4f'}
+{'name': u'dongzerun', 'class_en': u'zc', 'hostname': u'jxq-off-ku-qa00', 'port': 3410L, 'env_type': 1L, 'class_zh': u'\u79df\u8f[I 140918 12:40:02 web:1728] 200 GET /autosql/autodml (192.168.113.160) 32.51ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/bootstrap.min.css (192.168.113.160) 1.29ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/navbar-fixed-top.css (192.168.113.160) 0.86ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/bootstrap-clockpicker.min.css (192.168.113.160) 1.12ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/bootstrap-switch.min.css (192.168.113.160) 0.75ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/bootstrap-select.min.css (192.168.113.160) 0.75ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/jquery-clockpicker.min.css (192.168.113.160) 0.88ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/style.css (192.168.113.160) 0.75ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/uploader.css (192.168.113.160) 0.74ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/demo.css (192.168.113.160) 0.74ms
+[I 140918 12:40:02 web:1728] 304 GET /static/css/blueimp-gallery.min.css (192.168.113.160) 0.92ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/jquery.min.js (192.168.113.160) 1.05ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/bootstrap.min.js (192.168.113.160) 0.85ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/bootstrap-switch.min.js (192.168.113.160) 0.78ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/bootstrap-select.min.js (192.168.113.160) 0.82ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/bootstrap-clockpicker.min.js (192.168.113.160) 0.79ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/jquery-clockpicker.min.js (192.168.113.160) 0.78ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/dmuploader.js (192.168.113.160) 0.75ms
+[I 140918 12:40:02 web:1728] 304 GET /static/js/demo.min.js (192.168.113.160) 0.82ms
+[I 140918 12:40:04 web:1728] 304 GET /static/fonts/glyphicons-halflings-regular.woff (192.168.113.160) 1.04ms
+[I 140918 12:40:10 consumer:241] Received message # 7 from None: {"data": "TaskID: 523 autosql files list: \n/tmp//20140918//dongzerun_bamXsp_523_bamXsp_523", "type": "sqlsave", "success": 1, "task_id": "523"}
+66'}
+{'name': u'dongzerun', 'class_en': u'as', 'hostname': u'g1-off-ku-real', 'port': 3890L, 'env_type': 0L, 'class_zh': u'\u9632\u5783\u573e'}
+{'name': u'dongzerun', 'class_en': u'bin', 'hostname': u'yz-off-ku-bin00', 'port': 3306L, 'env_type': 0L, 'class_zh': u'\u5168\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'biz', 'hostname': u'g1-off-ku-real', 'port': 3810L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u4ea7\u54c1'}
+{'name': u'dongzerun', 'class_en': u'dz', 'hostname': u'g1-off-ku-real', 'port': 3840L, 'env_type': 0L, 'class_zh': u'\u77ed\u79df'}
+{'name': u'dongzerun', 'class_en': u'edm', 'hostname': u'g1-off-ku-real', 'port': 3331L, 'env_type': 0L, 'class_zh': u'edm'}
+{'name': u'dongzerun', 'class_en': u'emp', 'hostname': u'g1-off-ku-real', 'port': 3330L, 'env_type': 0L, 'class_zh': u'\u7f16\u8f91\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'im', 'hostname': u'g1-off-ku-real', 'port': 3820L, 'env_type': 0L, 'class_zh': u'webim'}
+{'name': u'dongzerun', 'class_en': u'jy', 'hostname': u'g1-off-ku-real', 'port': 3800L, 'env_type': 0L, 'class_zh': u'\u4ea4\u53cb'}
+{'name': u'dongzerun', 'class_en': u'log', 'hostname': u'g1-off-ku-real', 'port': 3350L, 'env_type': 0L, 'class_zh': u'\u65e5\u5fd7'}
+{'name': u'dongzerun', 'class_en': u'mana', 'hostname': u'g1-off-ku-real', 'port': 3311L, 'env_type': 0L, 'class_zh': u'mana'}
+{'name': u'dongzerun', 'class_en': u'mob', 'hostname': u'g1-off-ku-real', 'port': 3870L, 'env_type': 0L, 'class_zh': u'\u79fb\u52a8\u4e92\u8054\u7f51'}
+{'name': u'dongzerun', 'class_en': u'rp', 'hostname': u'g1-off-ku-real', 'port': 3380L, 'env_type': 0L, 'class_zh': u'\u62a5\u8868'}
+{'name': u'dongzerun', 'class_en': u'sticky', 'hostname': u'g1-off-ku-real', 'port': 3400L, 'env_type': 0L, 'class_zh': u'\u81ea\u52a9\u7f6e\u9876'}
+{'name': u'dongzerun', 'class_en': u'tc', 'hostname': u'g1-off-ku-real', 'port': 3321L, 'env_type': 0L, 'class_zh': u'\u5546\u4e1a\u5e10\u6237\u4e2d\u5fc3'}
+{'name': u'dongzerun', 'class_en': u'uc00', 'hostname': u'g1-off-ku-real', 'port': 3340L, 'env_type': 0L, 'class_zh': u'uc00'}
+{'name': u'dongzerun', 'class_en': u'uc01', 'hostname': u'g1-off-ku-real', 'port': 3341L, 'env_type': 0L, 'class_zh': u'uc01'}
+{'name': u'dongzerun', 'class_en': u'uc02', 'hostname': u'g1-off-ku-real', 'port': 3342L, 'env_type': 0L, 'class_zh': u'uc02'}
+{'name': u'dongzerun', 'class_en': u'uc03', 'hostname': u'g1-off-ku-real', 'port': 3343L, 'env_type': 0L, 'class_zh': u'uc03'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'jxq-off-ku-qa00', 'port': 3833L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'fang', 'hostname': u'g1-off-ku-real', 'port': 3833L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u5f52\u6863'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'jxq-off-ku-qa00', 'port': 3328L, 'env_type': 1L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'hp', 'hostname': u'g1-off-ku-real', 'port': 3328L, 'env_type': 0L, 'class_zh': u'\u623f\u4ea7\u540e\u53f0'}
+{'name': u'dongzerun', 'class_en': u'ana', 'hostname': u'jxq-off-ku-qa00', 'port': 3888L, 'env_type': 1L, 'class_zh': u'\u7edf\u8ba1'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'jxq-off-ku-qa00', 'port': 3382L, 'env_type': 1L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u'rpbg', 'hostname': u'g1-off-ku-real', 'port': 3382L, 'env_type': 0L, 'class_zh': u'\u6570\u636e\u5206\u6790'}
+{'name': u'dongzerun', 'class_en': u'price', 'hostname': u'jxq-off-ku-qa00', 'port': 3892L, 'env_type': 1L, 'class_zh': u'\u4ef7\u683c'}
+<type 'unicode'>
+<type 'str'>
+dongzerun
+replace into autosql_ddl_tasks (task_id,classname,applicant,description,task_status) values ('523','price','dongzerun','NULL','1');
+dmlsql is: update bi_marketing.demand_info set name="BI-449 9月18日房产旺季活动发送短信置顶1" where id=158; <type 'str'>
+523
+replace into dba_stats.autosql_tasks_files (task_id, file_url) values ('523','/tmp//20140918//dongzerun_bamXsp_523_bamXsp_523');
+dmlclass is : price
+<type 'str'>
+523 <type 'int'>[I 140918 12:40:10 consumer:223] Acknowledging message 7
+[I 140918 12:40:10 consumer:241] Received message # 8 from None: {"data": "TaskID: 523 \u8bed\u6cd5\u89e3\u6790\u5b8c\u6210", "type": "sqlparser", "success": 1, "task_id": "523"}
+[I 140918 12:40:10 consumer:223] Acknowledging message 8
+[I 140918 12:40:10 consumer:241] Received message # 9 from None: {"data": "TaskID: 523 \u8fc7\u6ee4\u89c4\u5219\u5b8c\u6210", "type": "ruleparser", "success": 1, "task_id": "523"}
+[I 140918 12:40:10 consumer:223] Acknowledging message 9
+[I 140918 12:40:10 consumer:241] Received message # 10 from None: {"data": "TaskID: 523 sim \u9884\u6267\u884c\u6210\u529f", "type": "sim", "success": 1, "task_id": "523"}
+[I 140918 12:40:10 consumer:223] Acknowledging message 10
+[I 140918 12:40:10 consumer:241] Received message # 11 from None: {"data": "TaskID: 523 sql\u5907\u4efd\u6210\u529f", "type": "sqlbak", "success": 1, "task_id": "523"}
+[I 140918 12:40:10 consumer:223] Acknowledging message 11
+[I 140918 12:40:10 consumer:241] Received message # 12 from None: {"data": "TaskID: 523 online\u7ebf\u4e0a\u6267\u884c\u6210\u529f", "type": "online", "success": 1, "task_id": "523"}
+[I 140918 12:40:10 consumer:223] Acknowledging message 12
+[W 140918 12:40:17 web:1728] 404 GET /static/js/jquery-2.0.3.min.map (192.168.113.160) 2.21ms

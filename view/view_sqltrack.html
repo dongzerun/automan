@@ -1,0 +1,463 @@
+{% extends nav.view.html %}
+{% block view %}
+<style type="text/css">
+.iform-horizontal .control-label{
+   text-align:left !important; 
+}
+    .inputpadding15 {
+        padding-left : 15px !important;
+        padding-right : 15px !important;
+    }
+    .fuploadwith {
+        width : 55% !important;
+    }
+    .formleft {
+        text-align : left !important;
+    }
+    .thcenter {
+        text-align : center !important;
+    }
+    .dl-horizontal dt{
+    text-align: left;
+    }
+</style>
+<div class="col-sm-9 col-md-10 main">
+<div class="jumbotron">
+        <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+        <form class="form-horizontal  pull-left" role="form">
+           <!-- <span>UseIndex, Schema,Table filter  optional&nbsp;&nbsp;&nbsp;&nbsp;generally just&nbsp;&nbsp;&nbsp;SUBMIT</span> -->
+           <div class="form-group">
+              <label class="col-sm-2 control-label">Category:</label>
+              <div class="col-sm-4"  aria-describedby="sizing-addon3">
+                    <select id="product" class="form-control">
+                       <option>ms</option>
+                       <option>tg</option>
+                       <option>hp</option>
+                       <option>zc</option>
+                       <option>zp</option>
+                       <option>tc</option>
+                       <option>sticky</option>
+                       <option>price</option>
+                       <option>mana</option>
+                       <option>msapi</option>
+                    </select>
+              </div>
+              <label class="col-sm-2 control-label">UseIndex:</label>
+              <div class="col-sm-4"  aria-describedby="sizing-addon3">
+                    <select id="useindex" class="form-control">
+                       <option>All</option>
+                       <option>Yes</option>
+                       <option>No</option>
+                    </select>
+              </div>
+           </div>
+           <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Schema:</label>
+              <div class="col-sm-4">
+                 <input class="form-control" id="dbname" type="text"  placeholder="optional">
+              </div>
+              <label for="inputPassword" class="col-sm-2 control-label">Host:</label>
+              <div class="col-sm-4">
+                 <input class="form-control" id="hostname" type="text"  placeholder="optional">
+              </div>
+           </div>
+           <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Table:</label>
+              <div class="col-sm-8">
+                 <input class="form-control" id="tbname" type="text"  placeholder="optional">
+              </div>
+              <div>
+                <input type="button" class="col-sm-2 btn btn-primary" id="querybtn" value="Query" input>
+              </div>
+           </div>
+            
+            
+        </form>
+        </div>
+</div>
+<!--<div class="well" id="tablewell">  !-->
+            <table class="table table-responsive table-striped  table-hover" style="table-layout: fixed;"  id="sqltable">
+                     <thead>
+                        <tr class="active">
+                            <th class="thcenter col-sm-2">table</th>
+                            <th class="thcenter">useindex</th>
+                            <th class="thcenter">time</th>
+                            <th class="thcenter">slowtime</th>
+                            <th class="thcenter">rows</th>
+                            <th class="thcenter col-sm-4">SQL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sqlbody">
+                    </tbody>
+             </table>
+             <input id="lastunixts" type="text" name="name" style="display:none" value="">
+             <img id="loadimg" src="/static/img/loading.gif" class="img-responsive col-sm-offset-5" alt="Responsive image" style="display:none" value="flase">
+<!--</div>!-->
+
+<div class="modal fade" id="sqldetail">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sqltitle">slow sql detail :</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well">
+            <table class="table table-responsive table-striped  table-hover" style="table-layout: fixed;">
+                     <thead>
+                        <tr class="active">
+                            <th class="thcenter col-sm-2"></th>
+                            <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailtbbody">
+                        <tr>
+                            <td class="thcenter">唯一ID</td>
+                            <td  id="detailid"></td>
+                        </tr>
+                            <td class="thcenter">库名</td>
+                            <td id="detailschema"></td>
+                        <tr>
+                            <td class="thcenter">表名</td>
+                            <td id="detailtable"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">来源IP</td>
+                            <td id="detailhost"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">检索行</td>
+                            <td id="detailrowsexamined"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">慢时间</td>
+                            <td id="detailslowtime"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">发送字节</td>
+                            <td id="detailbytessent"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">读取行数</td>
+                            <td id="detailrowsread"></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">详情内容</td>
+                            <td  id="detailsql" style="word-wrap:break-word" ></td>
+                        </tr>
+                        <tr>
+                            <td class="thcenter">执行计划</td>
+                            <td align="left">
+                                <dl  class="dl-horizontal" id="explaindl">
+                                </dl>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script type="text/javascript">
+    $(document).ready(function(){ 
+        $("#querybtn").bind("click", query);
+    });
+    $(document).ready(function(){ 
+        query();
+    });
+
+    $(document).ready(function(){
+        var lastTop = 0;
+        $(window).scroll(function(){
+            diff = $(document).height() - Math.floor($(document).scrollTop());
+            perc = $(document).scrollTop() * 100 / $(document).height() ;
+            if (Math.floor(perc) > 90) {
+                if(($(document).scrollTop() - lastTop) > 0 ){
+                    var loadimg=document.getElementById("loadimg");
+                    var getting = $("#loadimg").val();
+                    if(getting == "true"){
+                        return
+                    } else {
+                        $("#loadimg").val("true");
+                    }
+                    loadimg.setAttribute("style","display:block");
+                    refreshTable();
+                    loadimg.setAttribute("style","display:none");
+                    $("#loadimg").val("false");
+                }
+            }
+            lastTop = $(document).scrollTop();
+        })
+    })
+
+    function refreshTable(){
+            $("#querybtn").addClass("disabled");
+            var product = $("#product").val();
+            var useindex = $("#useindex").val();
+            var hostname = $("#hostname").val();
+            var dbname = $("#dbname").val();
+            var tbname = $("#tbname").val();
+            var lasttime = $("#lastunixts").val();
+            //console.log(product, useindex, dbname, tbname, hostname);
+            $.post("/view/mysql/moretrackdata",
+                    {"product":product,"useindex":useindex,"tbname":tbname, "lasttime":lasttime,"hostname":hostname,"dbname":dbname},
+                    function(data){
+                        renderTable(data, "yes");
+                        $("#querybtn").removeClass("disabled");
+                    });
+    }
+
+    function query(){ 
+            $("#querybtn").addClass("disabled");
+            var product = $("#product").val();
+            var useindex = $("#useindex").val();
+            var hostname = $("#hostname").val();
+            var dbname = $("#dbname").val();
+            var tbname = $("#tbname").val();
+            //console.log(product, useindex, dbname, tbname, hostname);
+            $.post("/view/mysql/tracker",
+                    {"product":product,"useindex":useindex,"tbname":tbname, "hostname":hostname, "dbname":dbname},
+                    function(data){
+                        renderTable(data, "no");
+                        $("#querybtn").removeClass("disabled");
+                    });
+    };
+
+    function renderDetail(data) {
+        var contents = new Array();
+        contents = eval(data);
+        explain = eval(contents[0]);
+
+        sql = explain["sql"];
+        slowtime = explain["slowtime"];
+        explains = explain["explains"];
+        rowsexamined = explain["rowsexamined"];
+        host = explain["host"];
+        id = explain["id"];
+        bytessent = explain["bytessent"];
+        schema = explain["schema"];
+        table = explain["table"];
+        rowsread = explain["rowsread"];
+        
+        $("#detailid").html(id);
+        $("#detailschema").html(schema);
+        $("#detailtable").html(table);
+        $("#detailrowsread").html(rowsread);
+        $("#detailbytessent").html(bytessent);
+        $("#detailhost").html(host);
+        $("#detailrowsexamined").html(rowsexamined);
+        $("#detailsql").html(sql);
+        //$("#detailexplains").html(explains);
+
+        var allex = new Array();
+        allex = eval(explains);
+       
+        $("#explaindl").html(""); 
+        var dl = document.getElementById("explaindl");
+
+        for(i=0;i<allex.length;i++){
+            exs = eval(allex[i]);
+            //console.log(exs);
+
+            var iddt =document.createElement("dt");
+            iddt.innerHTML = "id"
+            var iddd =document.createElement("dd");
+            iddd.setAttribute('style', "word-wrap:break-word");
+            iddd.innerHTML = exs["id"];
+            dl.appendChild(iddt);
+            dl.appendChild(iddd);
+            
+            var select_typedt =document.createElement("dt");
+            select_typedt.innerHTML = "select_type"
+            var select_typedd =document.createElement("dd");
+            select_typedd.setAttribute('style', "word-wrap:break-word");
+            select_typedd.innerHTML = exs["select_type"];
+            dl.appendChild(select_typedt);
+            dl.appendChild(select_typedd);
+
+            var tabledt =document.createElement("dt");
+            tabledt.innerHTML = "table"
+            var tabledd =document.createElement("dd");
+            tabledd.setAttribute('style', "word-wrap:break-word");
+            tabledd.innerHTML = exs["table"];
+            dl.appendChild(tabledt);
+            dl.appendChild(tabledd);
+
+            var typedt =document.createElement("dt");
+            typedt.innerHTML = "type"
+            var typedd =document.createElement("dd");
+            typedd.setAttribute('style', "word-wrap:break-word");
+            if(exs["explain_type"] == "all") {
+                typedd.innerHTML = "<strong><em>ALL</em></strong>";
+            } else {
+                typedd.innerHTML = exs["explain_type"];
+            }
+            dl.appendChild(typedt);
+            dl.appendChild(typedd);
+
+            var possible_keysdt =document.createElement("dt");
+            possible_keysdt.innerHTML = "possible_keys"
+            var possible_keysdd =document.createElement("dd");
+            possible_keysdd.setAttribute('style', "word-wrap:break-word");
+            possible_keysdd.innerHTML = exs["possible_keys"];
+            dl.appendChild(possible_keysdt);
+            dl.appendChild(possible_keysdd);
+
+            var keydt =document.createElement("dt");
+            keydt.innerHTML = "key"
+            var keydd =document.createElement("dd");
+            keydd.setAttribute('style', "word-wrap:break-word");
+            keydd.innerHTML = exs["key"];
+            dl.appendChild(keydt);
+            dl.appendChild(keydd);
+
+            var key_lendt =document.createElement("dt");
+            key_lendt.innerHTML = "key_len"
+            var key_lendd =document.createElement("dd");
+            key_lendd.setAttribute('style', "word-wrap:break-word");
+            key_lendd.innerHTML = exs["key_len"];
+            dl.appendChild(key_lendt);
+            dl.appendChild(key_lendd);
+
+            var refdt =document.createElement("dt");
+            refdt.innerHTML = "ref"
+            var refdd =document.createElement("dd");
+            refdd.setAttribute('style', "word-wrap:break-word");
+            refdd.innerHTML = exs["ref"];
+            dl.appendChild(refdt);
+            dl.appendChild(refdd);
+
+            var rowsdt =document.createElement("dt");
+            rowsdt.innerHTML = "rows"
+            var rowsdd =document.createElement("dd");
+            rowsdd.setAttribute('style', "word-wrap:break-word");
+            rowsdd.innerHTML = exs["rows"];
+            dl.appendChild(rowsdt);
+            dl.appendChild(rowsdd);
+
+            var Extradt =document.createElement("dt");
+            Extradt.innerHTML = "extra"
+            var Extradd =document.createElement("dd");
+            Extradd.setAttribute('style', "word-wrap:break-word");
+            Extradd.innerHTML = exs["extra"];
+            dl.appendChild(Extradt);
+            dl.appendChild(Extradd);
+        }
+
+        $("#detailslowtime").html(slowtime);
+        $("#sqldetail").modal('show');
+    }
+
+    function getDetail(target) {
+        var product = $("#product").val();
+        var tbname = $("#tbname").val();
+        $.post("/view/mysql/getsqldetailbyid", {"id":target, "product":product, "tbname":tbname}, function(data){renderDetail(data);});
+    };
+ 
+    function renderTable(data,apd){
+        var body=document.getElementById("sqlbody"); 
+        var contents = new Array();
+        contents = eval(data);
+        //删除原table tbody内的所有数据,这样清除比遍历Child再remove快多了
+        if(apd == "no"){
+            body.innerHTML='';
+        }
+        
+        if(data == ""){
+            return    
+        }
+ 
+        for(i=0;i<contents.length;i++) {
+            //console.log(contents[i]);
+            content = eval(contents[i]);
+            //console.log(content["sql"]);
+            //id, useindex, schema, table,sql, slowtime
+            var row =document.createElement("tr");
+            var ts = document.createElement("td");
+            ts.align="center";
+            ts.class="col-sm-1";
+            var diff = content["serverts"] - content["time"];
+            if(diff < 0) {
+                outputtime = "0秒前"
+            } else if(diff < 60) {
+               outputtime = diff.toString() + "秒前";
+            } else if ( diff < 3600) {
+                outputtime = Math.ceil(diff/60).toString() + "分前";
+            } else if (diff >= 3600) { 
+                outputtime = "1小时前";
+            } else if (diff >= 14400) { 
+                outputtime = "4小时前";
+            } else if (diff >= 46400) {
+                outputtime = "半天前";
+            } else if (diff >= 86400) {
+                outputtime = "一天前";
+            }
+            ts.innerHTML = outputtime;
+
+            var useindex = document.createElement("td");
+            useindex.align="center";
+            if(content["useindex"] == "false") {
+                //useindex.setAttribute("class", "glyphicon glyphicon-remove");
+                useindex.setAttribute("class", "text-danger");
+                useindex.innerHTML = '<i class="glyphicon glyphicon-remove "></i>';
+            } else {
+                //useindex.setAttribute("class", "glyphicon glyphicon-ok");
+                useindex.setAttribute("class", "text-success");
+                useindex.innerHTML = '<i class="glyphicon glyphicon-ok "></i>';
+            }
+            //useindex.innerHTML = content["useindex"];
+            var rowsexamined = document.createElement("td");
+            rowsexamined.align="center";
+            //schema.class="col-sm-2";
+            rowsexamined.setAttribute('style', "word-wrap:break-word");
+            rowsexamined.innerHTML = content["rowsexamined"];
+            var table = document.createElement("td");
+            table.align="center";
+            table.class="col-sm-2";
+            table.setAttribute('style', "word-wrap:break-word");
+            table.innerHTML = content["table"];
+            if(i == (contents.length - 1)) {
+                unixts = content["time"];
+                $("#lastunixts").val(unixts);
+                var lastunixts = document.getElementById("lastunixts");
+                lastunixts.setAttribute("value",unixts);
+            }
+
+            var sql= document.createElement("td");
+            sql.align="left";
+            sql.class="col-sm-4";
+            sql.setAttribute('style', "word-wrap:break-word");
+            var click = document.createElement("a");
+            click.href= "/view/mysql/getsqlbyid?id=" + content["id"];
+            click.href= "javascript:getDetail(" + content["id"] + ")";
+            click.innerHTML = content["sql"];
+            sql.appendChild(click);
+
+            var slowtime = document.createElement("td");
+            slowtime.align="center";
+            slowtime.class="col-sm-1";
+            slowtime.setAttribute('style', "word-wrap:break-word");
+            slowtime.innerHTML = content["slowtime"];
+
+            row.appendChild(table);
+            row.appendChild(useindex);
+            row.appendChild(ts);
+            row.appendChild(slowtime);
+            row.appendChild(rowsexamined);
+            row.appendChild(sql);
+            body.appendChild(row);
+        }
+        tr = body.getElementsByTagName("tr");
+        //console.log(tr[99]);
+    };
+</script>
+
+</div>
+{% end %}

@@ -1,0 +1,160 @@
+{% extends nav.html %}
+{% block common %}
+<style type="text/css">
+    .inputpadding15 {
+        padding-left : 15px !important;
+        padding-right : 15px !important;
+    }
+    .fuploadwith {
+        width : 55% !important;
+    }
+    .thcenter {
+        text-align : center !important;
+    }
+
+</style>
+<div class="main">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>MySQL Real Time Info : {{ cname }}</h4></div>
+        <div class="panel-body">
+        <div>
+        <p><a class="btn pull-right btn-default  glyphicon glyphicon-refresh" role="button" onClick="window.location.reload();"> </a></p></div>
+        <p><a class="btn pull-right btn-default  glyphicon glyphicon-backward" role="button" href="/view/mysql"> </a></p></div>
+        <div class="row placeholders">
+             <div class="table-responsive col-sm-12">
+                 <table class="table">
+                     <thead>
+                        <tr class="default" align="center">
+                            <th class="thcenter ">主机名</th>   
+                            <th class="thcenter">端口</th>   
+                            <th class="thcenter">版本</th>   
+                            <th class="thcenter">角色</th>   
+                            <th class="thcenter">状态</th>   
+                            <th class="thcenter">连接数</th>   
+                            <th class="thcenter">主库</th>   
+                            <th class="thcenter">binlog</th>   
+                            <th class="thcenter">binpos</th>   
+                            <th class="thcenter">延迟</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in classdata %}
+                            {% if i['secbeh'] > 0 %}
+                                {% if i['is_master'] == 0 %}
+                                    <tr  class="active warning hovered">
+                                {% elif i['is_master'] == 5%}
+                                    <tr  class="active warning hovered">
+                                {% else %}
+                                    <tr>
+                                {% end %}
+                            {% else %}
+                            <tr>
+                            {% end %}
+                            {% if i['is_master'] == 0%}
+                             <td align="center"><a class="gpichost" href="http://{{i['host']}}.dns.ganji.com:8010">{{i['host']}}</a></td>
+                            {% elif i['is_master'] == 1%}
+                             <td align="center"><a class="gpichost" href="http://{{i['host']}}.dns.ganji.com:8010">{{i['host']}}</a></td>
+                            {%else%}
+                             <td align="center"><a>{{i['host']}}</a></td>
+                            {%end%}
+                             <td align="center">{{i['port']}}</td>
+                             <td align="center">{{i['mysqlv']}}</td>
+                             {% if i['is_master'] == 0 %}
+                                <td align="center">slave</td>
+                             {% elif i['is_master'] == 1 %}
+                                <td align="center">master</td>
+                             {% elif i['is_master'] == 2 %}
+                                <td align="center">writevip</td>
+                             {% elif i['is_master'] == 3 %}
+                                <td align="center">readvip</td>
+                             {% elif i['is_master'] == 4 %}
+                                <td align="center">real</td>
+                             {% elif i['is_master'] == 5 %}
+                                <td align="center">master</td>
+                             {% end %}
+                             <td align="center">{{i['uptime']}} d</td>
+                             <td align="center">{{i['connections']}}</td>
+                             <td align="center"><a href="/view/mysql/getbyhost?host={{i['masterhost']}}&class={{cname}}">{{i['masterhost']}}</a></td>
+                             <td align="center">{{i['masterlogfile']}}</td>
+                             <td align="center">{{i['masterlogpos']}}</td>
+                             <td align="center">{{i['secbeh']}}s</td>
+                             </tr>
+                        {%end%}
+                    </tbody>
+                </table>
+            </div>
+                <script language="JavaScript"> 
+                        function myrefresh() 
+                        { 
+                               window.location.reload(); 
+                        } 
+                //        setTimeout('myrefresh()',10000); //指定1秒刷新一次
+                    $(function ()
+                    {   
+                        $(".tooltips").tooltip({placement:'top'});
+                    }); 
+                </script>
+        </div>
+        <div id="gpicview" class="row placeholders">
+        </div>
+            <script type="text/javascript">
+                var cname = "{{cname}}";
+                //var urlpre = "http://gpic.apollo.corp.ganji.com/render/?&from=-7days&width=1100&height=350";
+                var urlpre = "http://gpic.apollo.corp.ganji.com/render/?&from=-7days";
+                var metrics = new Array("status.questions",
+                                        "status.com_select",
+                                        "status.com_delete",
+                                        "status.com_update",
+                                        "status.com_insert",
+                                        "status.slow_queries",
+                                        "status.connections",
+                                        "status.threads_created",
+                                        "innodb.history_list",
+                                        "innodb.rows_inserted",
+                                        "innodb.rows_updated",
+                                        "innodb.rows_deleted",
+                                        "innodb.rows_read",
+                                        "slave.seconds_behind_master");
+                var hosts = new Array();
+                var father=document.getElementById("gpicview");
+                width=Number(father.offsetWidth) - 100;
+                //height=father.offsetTop;
+                height=width/3.42;
+                urlpre = urlpre + "&width=" + width + "&height=" + height;
+                {% for i in classdata %}
+                    {% if i['is_master'] == 0 %}
+                    hosts.push("{{i['host']}}")
+                    {% elif i['is_master'] == 1%}
+                    hosts.push("{{i['host']}}")
+                    {% end %}
+                {% end %}
+                for(var i=0;i<metrics.length;i++){
+                    var target="";
+                    for(var n=0;n<hosts.length;n++){
+                        target= target + "&target=stats.db.mysql." + cname + "." + hosts[n]  + "." + metrics[i];
+                    }
+                    if(target != ""){
+                        target = urlpre + target;
+                        var con=document.getElementById("gpicview");
+                        width=con.offsetWidth;
+                        height=con.offsetTop;
+                        var form=document.createElement("div");
+                        form.class="form";
+                        form.align="center";
+                        var h4=document.createElement("h4");
+                        h4.innerHTML=cname + " : " + metrics[i];
+                        h4.setAttribute('innerHtml', cname + " : " + metrics[i]);
+                        var img=document.createElement("img");
+                        img.class="img-rounded img-responsive";
+                        img.alt="Responsive image";
+                        img.src=target;
+                        
+                        form.appendChild(h4);
+                        form.appendChild(img);
+                        con.appendChild(form);
+                    }
+                }
+            </script>
+        </div>
+</div>
+{% end %}

@@ -1,0 +1,43 @@
+{% extends nav.html %}
+
+{% block common %}
+<div class="container-fluid">
+    <div class="row placeholders">
+        <div class="col-sm-3 col-md-2 sidebar">
+        <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+          <div class="panel-group" id="accordion">
+             <ul class="nav nav-sidebar nav-stacked">
+                 <li>   
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             <h4 class="panel-title">
+                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">备份控制</a>
+                             </h4>
+                                 </div>
+                                 <div id="collapseOne" class="panel-collapse collapse out">
+                                 <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                                    <li><a href="/backup/control">备份控制</a></li>
+                                    </ul>
+                                 </div>
+                         </div>
+                     </div> 
+                 </li>
+             
+                 <li>   
+             </ul>
+         </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                    var $affixElement = $('div[data-spy="affix"]');
+                    $affixElement.width($affixElement.parent().width());
+                });
+        </script>
+{% block backup %}{% end %} 
+    </div>
+
+</div>
+
+{% end %}

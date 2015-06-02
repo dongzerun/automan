@@ -1,0 +1,350 @@
+{% extends nav.monitor.html %}
+{% block monitor %}
+<div class="col-sm-9 col-md-10 main">
+    <h3 class="page-header">Redis内存监控列表</h3>
+    <div class="row placeholders">
+      <div class="btn-group">
+          <button type="button" class="btn btn-primary">产品线</button>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+          {% for i in redisclassname%}
+            <li><a href="/monitor/redis/memmonfindbyclass/{{i['class']}}">{{i['class']}}</a></li>
+          {% end %}
+          </ul>
+     </div>
+
+
+
+     <h2 class="sub-header"> </h2>
+     <div class="panel panel-default">
+     <div class="table-responsive">
+         <table class="table table-striped table-bordered table-hover" style="table-layout: fixed;">
+             <thead>
+             <tr class="info">
+             <th style="text-align:center">产品线</th>
+             <th style="text-align:center">角色</th>
+             <th style="text-align:center">主机名</th>
+             <th style="text-align:center">端口</th>
+             <th style="text-align:center">用途</th>
+             <th style="text-align:center">内存报警阀值(G)</th>
+             <th style="text-align:center">监控</th>
+             <th style="text-align:center">编辑</th>
+             </tr>
+             </thead>
+             <tbody>
+                {% for host in hosts %}
+                    {% if host['mon_mem'] == 0 %}
+                        <tr id="{{host['id']}}_mon_tr" class="active danger hovered">
+                    {% else %}
+                        <tr id="{{host['id']}}_mon_tr"  class="active hovered">
+                    {%end %}
+                         <td align="center" id="{{host['id']}}_class_tr" value="{{host['class']}}">{{host['class']}}</td>
+                    {% if host['is_master'] == 0 %}
+                         <td align="center" id="{{host['id']}}_ismaster_tr" value="0">slave</td>
+                    {% elif host['is_master'] == 1 %}
+                         <td align="center" id="{{host['id']}}_ismaster_tr" value="1">master</td>
+                    {% elif host['is_master'] == 2 %}
+                         <td align="center" id="{{host['id']}}_ismaster_tr" value="2">Twemproxy</td>
+                    {% else %}
+                         <td class="danger" id="{{host['id']}}_ismaster_tr" value="3">Unknow</td>
+                    {%end%}
+                         <td align="center" id="{{host['id']}}_host_tr" value="{{host['host']}}">{{host['host']}}</td>
+                         <td align="center" id="{{host['id']}}_port_tr" value="{{host['port']}}">{{host['port']}}</td>
+                         <td align="center" id="{{host['id']}}_usefor_tr" value="{{host['usefor']}}">{{host['usefor']}}</td>
+                         <td align="center" id="{{host['id']}}_memlimit_tr" value="{{host['mem_limit']}}">{{host['mem_limit']}}</td>
+                <td align="center">    
+                <!-- Button trigger modal -->
+                {% if host['mon_mem'] == 0 %}
+                <button class="btn btn-primary mon_button" id="{{host['id']}}_save_btn" data-toggle="modal" data-target="#modal_mon_save">
+                {{host['mem_starttime']}}
+                </button>
+                {% else %}
+    
+                <button class="btn btn-primary" id="{{host['id']}}_save_btn" data-toggle="modal" data-target="#modal_mon_save">
+                 关闭
+                </button>
+                {% end %}
+                </td>                
+
+
+                <td align="center">                    
+                <!-- Button trigger modal -->
+                <button class="btn btn-primary" id="{{host['id']}}_edit_btn" data-toggle="modal" data-target="#modal_mon_edit">
+                  编辑
+                </button>
+                </td>  
+
+
+                        </tr>
+                 {% end %}
+             </tbody>
+        </table>
+    </div>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="modal_mon_edit" tabindex="-1" role="dialog" aria-labelledby="modal_mon_edit_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="modal_mon_edit_label"></h4>
+        <label class="control-label" id="modal_mon_edit_monid"></label>
+      </div>
+      <div class="modal-body">
+
+
+
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="classname" class="col-sm-offset-1 col-sm-2 control-label">产品线</label>
+    <div class="col-sm-6">
+    <select class="form-control" id="editclassname">
+    {% for i in redisclassname%}
+        <option>{{i['class']}}</option>
+    {% end %}    
+    </select>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="classrole" class="col-sm-offset-1 col-sm-2 control-label">角色</label>
+    <div class="col-sm-6">
+  
+    <select class="form-control" id="editclassrole">
+      <option value="1">master</option>
+      <option value="0">slave</option>
+      <option value="2">Twemproxy</option>
+    </select>
+  
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="classhost" class="col-sm-offset-1 col-sm-2 control-label">主机名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="editclasshost" value="" placeholder="主机名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="classport" class="col-sm-offset-1 col-sm-2 control-label">端口</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="editclassport" value="6379" placeholder="默认 6379">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="classmemlimit" class="col-sm-offset-1 col-sm-2 control-label">内存报警阀值(G)</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="editclassmemlimit"  placeholder="">
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger pull-left" id="comm_edit_del" data-dismiss="modal">删除</button>
+        <button type="button" class="btn btn-primary pull-left" id="comm_edit_save" data-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <script type="text/javascript">
+            $('#modal_mon_edit').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+
+
+        $('#modal_mon_edit').on('show.bs.modal', function (e) {
+            modal_edit_saves = new Array;
+            modal_edit_saves = e.relatedTarget.id.split("_");
+            var id=modal_edit_saves[0];
+            var hostname=document.getElementById(id + "_host_tr").childNodes[0].nodeValue;
+            $("#editclasshost").attr("value", hostname)
+            $("#editclasshost").html(hostname)
+
+            var hostport=document.getElementById(id + "_port_tr").childNodes[0].nodeValue;
+            $("#editclassport").attr("value", hostport)
+            $("#editclassport").html(hostport)
+
+            var hostclass=document.getElementById(id + "_class_tr").childNodes[0].nodeValue;
+            var editclassname=document.getElementById("editclassname")
+            for(i=0;i<editclassname.length;i++){
+               if(hostclass == editclassname.options[i].value){
+                    editclassname.options[i].selected=true
+                }
+            }
+
+            var hostrole=document.getElementById(id + "_ismaster_tr").childNodes[0].nodeValue;
+            var hostrole_value;
+            if(hostrole == "slave"){
+                hostrole_value=0
+            } else if (hostrole == "master") {
+                hostrole_value=1
+            } else {
+                hostrole_value=2
+            }
+            var editclassrole=document.getElementById("editclassrole")
+            for(i=0;i<editclassrole.length;i++){
+                if(hostrole_value == editclassrole.options[i].value){
+                    editclassrole.options[i].selected=true
+                }
+            }
+
+            var hostmemlimit=document.getElementById(id + "_memlimit_tr").childNodes[0].nodeValue;
+            $("#editclassmemlimit").attr("value", hostmemlimit)
+            $("#editclassmemlimit").html(hostmemlimit)
+
+            $("#modal_mon_edit_label").html(hostname+":"+hostport+" "+hostclass)
+            $("#modal_mon_edit_monid").attr("value", id)
+        })
+        </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_save").bind("click", function () {
+                var editclassname=$("#editclassname").val();
+                var editclassrole=$("#editclassrole").val();
+                var editclasshost=$("#editclasshost").val();
+                var editclassport=$("#editclassport").val();
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                var editclassmemlimit=$("#editclassmemlimit").val();
+                $.post("/monitor/redis/edit_mem_mon",{editclassname:editclassname,editclassrole:editclassrole,editclasshost:editclasshost,editclassport:editclassport,editclassmemlimit:editclassmemlimit,pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#comm_edit_del").bind("click", function () {
+                var pkid=$("#modal_mon_edit_monid").attr("value");
+                $.post("/monitor/redis/del_mon_save",{pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal_mon_save" tabindex="-1" role="dialog" aria-labelledby="modal_mon_save_label" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="modal_mon_save_label"></h4>
+                        <label class="control-label" id="modal_mon_save_monid"></label>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label class="col-sm-offset-1 col-sm-2">内存监控维护时间</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="mon_savetime_select">
+                                    <option value="0" >开启监控</option>
+                                    <option value="3600" >维护1 小时</option>
+                                    <option value="14400">维护4 小时</option>
+                                    <option value="43200">维护12 小时</option>
+                                    <option value="86400">维护1 天</option>
+                                    <option value="259200">维护3 天</option>
+                                    <option value="604800">维护7 天</option>
+                                    </select>
+                                </div>
+
+                          </div> 
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="com_mon_save" data-dismiss="modal">提交</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<script type="text/javascript">
+            $('#modal_mon_save').on('hidden.bs.modal', function (e) {
+                window.location.reload()
+            });
+$('#modal_mon_save').on('show.bs.modal', function (e) {
+    modal_mon_saves = new Array;
+    modal_mon_saves = e.relatedTarget.id.split("_");
+    var id=modal_mon_saves[0];
+    var hostname=document.getElementById(id + "_host_tr").childNodes[0].nodeValue;
+    var hostport=document.getElementById(id + "_port_tr").childNodes[0].nodeValue;
+    var hostclass=document.getElementById(id + "_class_tr").childNodes[0].nodeValue;
+    
+    $("#modal_mon_save_label").html(hostname+":"+hostport+" "+hostclass)
+    $("#modal_mon_save_monid").attr("value", id)
+})
+</script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#com_mon_save").bind("click", function () {
+                var montime=$("#mon_savetime_select").val();
+                var pkid=$("#modal_mon_save_monid").attr("value");
+                $.post("/monitor/redis/mem_mon_save",{montime:montime,pk:pkid} ,function(data){});
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        defEndTime();
+        setInterval("defEndTime()",1000);
+        });
+        function defEndTime(){
+        $(".mon_button").each(function(){
+            //$(this).attr("checked",'false');
+            var ht = $(this).html();
+            var htarr = new Array();
+            htarr = ht.split(":");
+            var m = parseInt(htarr[0],10)*3600+parseInt(htarr[1],10)*60+parseInt(htarr[2],10);
+            var h = 0;
+            var mi = 0;
+            var s = 0;
+            var hstr = '00';
+            var mistr = '00';
+            var sstr = '00';
+            if(m != 0){
+                m = m -1;
+                h = Math.floor(m/3600);
+                if(h >=100){
+                    hstr = '99';   
+                    }else if(h >= 10){
+                    hstr = h;
+                    }else{
+                    hstr = '0' +h;
+                }
+                mi = Math.floor(m%3600/60);
+                if(mi <10){
+                    mistr = '0'+mi; 
+                    }else{
+                    mistr = mi;
+                }
+                s = m%3600%60;
+                if(s <10){
+                    sstr = '0'+s;   
+                    }else{
+                    sstr = s;
+                }
+            }
+            var str = hstr+':'+mistr+':'+sstr;
+            $(this).html(str);
+        }); }; 
+    </script>
+
+</div>
+{% end %}

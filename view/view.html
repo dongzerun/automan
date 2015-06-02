@@ -1,0 +1,79 @@
+{% extends nav.view.html %}
+<style type="text/css">
+    .colorwhite {
+        color : FDF7F7 !important;
+    }
+</style>
+{% block view %}
+<div class="col-sm-9 col-md-10  main">
+    <div class="jumbotron">
+    <div class="row placeholders">
+          <div class="row">
+          {% for i in classes%}
+            <div class="col-xs-6 col-lg-4">
+                <div class="panel  panel-small panel-default">
+                    <div class="panel-heading">
+                      <h6 class="panel-title"><i class="glyphicon glyphicon-th-list"></i><strong>  {{i['class_zh']}} {{i['class']}}</strong></h6>
+                    </div>
+                    <div class="panel-body">
+                      <p>
+                        {% if i['has_real'] == 1%}
+                        <span  class="tooltips btn btn-default" data-toggle="tooltip" data-placement="top" title="g1-off-ku-real.dns.ganji.com {{i['port']}}">
+                            <a href="/view/mysql/getbyhost?host=g1-off-ku-real&class={{i['class']}}">
+                            <span class="colorwhite">real</span>
+                            <i class="glyphicon glyphicon-ok "></i>
+                            </a>
+                        </span>
+                        {% else %}
+                        <span  class="btn btn-default colorwhite" disabled="true">
+                            <span>real</span>
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </span>
+                        {% end %}
+                        {% if i['has_sim'] == 1%}
+                        <span  class="tooltips btn colorwhite btn-default" data-toggle="tooltip" data-placemen
+t="top" title="yz-off-ku-sim.dns.ganji.com {{i['port']}}">
+                            <a href="/view/mysql/getbyhost?host=yz-off-ku-sim00&class={{i['class']}}">
+                            <span>sim</span>
+                            <i class="glyphicon glyphicon-ok "></i>
+                            </a>
+                        </span>
+                        {% else %}
+                        <span  class="btn btn-default colorwhite" disabled="true">
+                            <span>sim</span>
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </span>
+                        {% end %}
+                        {% if i['has_qa'] == 1%}
+                        <span  class="tooltips btn btn-default colorwhite" data-toggle="tooltip" data-placemen
+t="top" title="jxq-off-ku-qa00.dns.ganji.com {{i['port']}}">
+                            <a href="/view/mysql/getbyhost?host=jxq-off-ku-qa00&class={{i['class']}}">
+                            <span> qa</span>
+                            <i class="glyphicon glyphicon-ok "></i>
+                            </a>
+                        </span>
+                        {% else %}
+                        <span  class="btn btn-default colorwhite" disabled="true">
+                            <span> qa</span>
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </span>
+                        {% end %}
+                      </p>
+                      </p>
+                      <p><a class="btn btn-default  colorwhite glyphicon glyphicon-folder-open" id="{{i['id']}}_{{i['class']}}_status"  role="button" href="/view/mysql/getbyclass?classname={{i['class']}}"> MySQL实例</a></p>
+                    </div>
+                </div>
+            </div><!--/.col-xs-6.col-lg-4-->
+          {% end %}
+          </div><!--/row-->
+                <script type="text/javascript">
+                    $(function ()
+                    { 
+                        $(".tooltips").tooltip({placement:'top'});
+                    });
+
+                </script>
+    </div>
+    </div>
+</div>
+{% end %}

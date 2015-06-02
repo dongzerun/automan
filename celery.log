@@ -1,0 +1,603 @@
+[2015-05-14 19:03:48,193: DEBUG/MainProcess] | Worker: Preparing bootsteps.
+[2015-05-14 19:03:48,197: DEBUG/MainProcess] | Worker: Building graph...
+[2015-05-14 19:03:48,198: DEBUG/MainProcess] | Worker: New boot order: {Timer, Hub, Queues (intra), Pool, Autoscaler, StateDB, Autoreloader, Beat, Consumer}
+[2015-05-14 19:03:48,202: DEBUG/MainProcess] | Consumer: Preparing bootsteps.
+[2015-05-14 19:03:48,202: DEBUG/MainProcess] | Consumer: Building graph...
+[2015-05-14 19:03:48,207: DEBUG/MainProcess] | Consumer: New boot order: {Connection, Events, Heart, Mingle, Gossip, Tasks, Control, Agent, event loop}
+[2015-05-14 19:03:48,208: WARNING/MainProcess] /usr/local/lib/python2.7/site-packages/celery-3.1.9-py2.7.egg/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2015-05-14 19:03:48,210: DEBUG/MainProcess] | Worker: Starting Hub
+[2015-05-14 19:03:48,211: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:48,211: DEBUG/MainProcess] | Worker: Starting Pool
+[2015-05-14 19:03:48,304: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:48,305: DEBUG/MainProcess] | Worker: Starting Consumer
+[2015-05-14 19:03:48,305: DEBUG/MainProcess] | Consumer: Starting Connection
+[2015-05-14 19:03:48,323: DEBUG/MainProcess] Start from server, version: 0.9, properties: {u'information': u'Licensed under the MPL.  See http://www.rabbitmq.com/', u'product': u'RabbitMQ', u'copyright': u'Copyright (C) 2007-2014 GoPivotal, Inc.', u'capabilities': {u'exchange_exchange_bindings': True, u'connection.blocked': True, u'authentication_failure_close': True, u'basic.nack': True, u'per_consumer_qos': True, u'consumer_priorities': True, u'consumer_cancel_notify': True, u'publisher_confirms': True}, u'cluster_name': u'rabbit@yz-log-ku-01.dns.ganji.com', u'platform': u'Erlang/OTP', u'version': u'3.3.5'}, mechanisms: [u'AMQPLAIN', u'PLAIN'], locales: [u'en_US']
+[2015-05-14 19:03:48,324: DEBUG/MainProcess] Open OK!
+[2015-05-14 19:03:48,325: INFO/MainProcess] Connected to amqp://guest@127.0.0.1:5672//
+[2015-05-14 19:03:48,325: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:48,325: DEBUG/MainProcess] | Consumer: Starting Events
+[2015-05-14 19:03:48,341: DEBUG/MainProcess] Start from server, version: 0.9, properties: {u'information': u'Licensed under the MPL.  See http://www.rabbitmq.com/', u'product': u'RabbitMQ', u'copyright': u'Copyright (C) 2007-2014 GoPivotal, Inc.', u'capabilities': {u'exchange_exchange_bindings': True, u'connection.blocked': True, u'authentication_failure_close': True, u'basic.nack': True, u'per_consumer_qos': True, u'consumer_priorities': True, u'consumer_cancel_notify': True, u'publisher_confirms': True}, u'cluster_name': u'rabbit@yz-log-ku-01.dns.ganji.com', u'platform': u'Erlang/OTP', u'version': u'3.3.5'}, mechanisms: [u'AMQPLAIN', u'PLAIN'], locales: [u'en_US']
+[2015-05-14 19:03:48,342: DEBUG/MainProcess] Open OK!
+[2015-05-14 19:03:48,343: DEBUG/MainProcess] using channel_id: 1
+[2015-05-14 19:03:48,344: DEBUG/MainProcess] Channel open
+[2015-05-14 19:03:48,344: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:48,344: DEBUG/MainProcess] | Consumer: Starting Heart
+[2015-05-14 19:03:48,346: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:48,346: DEBUG/MainProcess] | Consumer: Starting Mingle
+[2015-05-14 19:03:48,346: INFO/MainProcess] mingle: searching for neighbors
+[2015-05-14 19:03:48,347: DEBUG/MainProcess] using channel_id: 1
+[2015-05-14 19:03:48,348: DEBUG/MainProcess] Channel open
+[2015-05-14 19:03:49,357: INFO/MainProcess] mingle: all alone
+[2015-05-14 19:03:49,357: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:49,357: DEBUG/MainProcess] | Consumer: Starting Gossip
+[2015-05-14 19:03:49,358: DEBUG/MainProcess] using channel_id: 2
+[2015-05-14 19:03:49,358: DEBUG/MainProcess] Channel open
+[2015-05-14 19:03:49,362: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:49,363: DEBUG/MainProcess] | Consumer: Starting Tasks
+[2015-05-14 19:03:49,376: DEBUG/MainProcess] basic.qos: prefetch_count->128
+[2015-05-14 19:03:49,377: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:49,377: DEBUG/MainProcess] | Consumer: Starting Control
+[2015-05-14 19:03:49,377: DEBUG/MainProcess] using channel_id: 3
+[2015-05-14 19:03:49,378: DEBUG/MainProcess] Channel open
+[2015-05-14 19:03:49,381: DEBUG/MainProcess] ^-- substep ok
+[2015-05-14 19:03:49,382: DEBUG/MainProcess] | Consumer: Starting event loop
+[2015-05-14 19:03:49,383: WARNING/MainProcess] celery@yz-log-ku-01 ready.
+[2015-05-14 19:03:49,383: DEBUG/MainProcess] | Worker: Hub.register Pool...
+[2015-05-14 19:03:50,391: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[5262529d-1926-4d1f-85bb-3b04f07f47af] eta:[2015-05-14 11:30:00.608729+00:00]
+[2015-05-14 19:03:50,392: DEBUG/MainProcess] basic.qos: prefetch_count->129
+[2015-05-14 19:03:50,393: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[e41b6a11-65ac-4b99-a03c-e6399f61cb8e] eta:[2015-05-14 17:00:00.635560+00:00]
+[2015-05-14 19:03:50,394: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[6f72bc80-dbfc-4195-b34f-102ab45e30e8] eta:[2015-05-14 11:30:00.964741+00:00]
+[2015-05-14 19:03:50,394: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[c34746ff-3928-4c8c-ad9a-ed9fd0ec435f] eta:[2015-05-14 15:00:00.901800+00:00]
+[2015-05-14 19:03:50,395: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[385db676-1754-4ab8-ab46-bf7b8c566c8a] eta:[2015-05-14 15:00:00.337160+00:00]
+[2015-05-14 19:03:50,396: INFO/MainProcess] Received task: handler.asynctasks.tasks.delaytask[c09ed181-396c-48c1-8ee5-5d9b94051368] eta:[2015-05-14 11:30:00.889047+00:00]
+[2015-05-14 19:03:52,390: DEBUG/MainProcess] basic.qos: prefetch_count->134
+[2015-05-14 19:04:00,190: INFO/MainProcess] Received task: handler.asynctasks.tasks.submittask[8b4fe620-35ac-4ef5-bed7-f452e60dd46e]
+[2015-05-14 19:04:00,190: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x3adda28> (args:('handler.asynctasks.tasks.submittask', '8b4fe620-35ac-4ef5-bed7-f452e60dd46e', [u'29949', u'ms', False], {}, {'utc': True, u'is_eager': False, 'chord': None, u'group': None, 'args': [u'29949', u'ms', False], 'retries': 0, u'delivery_info': {u'priority': None, u'redelivered': False, u'routing_key': u'default', u'exchange': u'default'}, 'expires': None, u'hostname': 'celery@yz-log-ku-01', 'task': 'handler.asynctasks.tasks.submittask', 'callbacks': None, u'correlation_id': None, 'errbacks': None, 'timelimit': (None, None), 'taskset': None, 'kwargs': {}, 'eta': None, u'reply_to': None, 'id': '8b4fe620-35ac-4ef5-bed7-f452e60dd46e', u'headers': {}}) kwargs:{})
+[2015-05-14 19:04:00,193: DEBUG/MainProcess] Task accepted: handler.asynctasks.tasks.submittask[8b4fe620-35ac-4ef5-bed7-f452e60dd46e] pid:19563
+[2015-05-14 19:04:01,193: WARNING/Worker-12] in submittask:
+[2015-05-14 19:04:01,193: WARNING/Worker-12] 29949
+[2015-05-14 19:04:01,194: WARNING/Worker-12] ms
+[2015-05-14 19:04:01,194: WARNING/Worker-12] False
+[2015-05-14 19:04:01,194: WARNING/Worker-12] []
+[2015-05-14 19:04:01,202: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,203: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,203: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>> for "0:Connection.Start"
+[2015-05-14 19:04:01,206: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,207: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:04:01,207: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,207: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,208: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,208: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>> for "0:Connection.Tune"
+[2015-05-14 19:04:01,208: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:01,208: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,209: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:01,209: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,209: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,209: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,210: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:01,210: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cadbd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,210: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:04:01,210: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,211: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,211: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,211: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,211: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,212: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:01,212: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,213: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,213: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,213: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:01,224: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,225: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:01,225: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,225: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,225: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,226: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:01,239: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,239: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,239: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:01,241: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:04:01,241: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,242: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,242: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,244: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>> for "0:Connection.Start"
+[2015-05-14 19:04:01,245: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,245: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:04:01,245: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,246: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,246: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,246: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>> for "0:Connection.Tune"
+[2015-05-14 19:04:01,246: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:01,246: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,247: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:01,247: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,247: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,247: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,247: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:01,248: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3caddd0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,248: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:04:01,248: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,248: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,248: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,249: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,249: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,250: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:01,250: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,250: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,250: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,251: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:01,261: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,262: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:01,262: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,262: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,262: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,262: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:01,278: WARNING/Worker-12] delete
+[2015-05-14 19:04:01,278: WARNING/Worker-12] ('delete', 'hangzhou.service_store_post', {'where': ('and', ('>', 'id', 0), ('<', 'id', 1)), 'location': '/data/mysql/sqldata//20150514//dongzerun_bamXsp_29949_bamXsp_29949:1'})
+[2015-05-14 19:04:01,278: WARNING/Worker-12] sql print:
+[2015-05-14 19:04:01,278: WARNING/Worker-12] id
+[2015-05-14 19:04:01,278: WARNING/Worker-12] >
+[2015-05-14 19:04:01,279: WARNING/Worker-12] 0
+[2015-05-14 19:04:01,279: WARNING/Worker-12] >
+[2015-05-14 19:04:01,279: WARNING/Worker-12] sql print:
+[2015-05-14 19:04:01,279: WARNING/Worker-12] id
+[2015-05-14 19:04:01,279: WARNING/Worker-12] <
+[2015-05-14 19:04:01,279: WARNING/Worker-12] 1
+[2015-05-14 19:04:01,280: WARNING/Worker-12] <
+[2015-05-14 19:04:01,280: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,280: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,281: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:01,283: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:04:01,283: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,283: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,283: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,284: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>> for "0:Connection.Start"
+[2015-05-14 19:04:01,284: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,285: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:04:01,286: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,286: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,286: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,286: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>> for "0:Connection.Tune"
+[2015-05-14 19:04:01,286: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:01,287: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,287: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:01,287: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,287: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,288: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,288: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:01,288: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3c48b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,288: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:04:01,288: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,289: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,289: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:01,289: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,289: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,290: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:01,290: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,290: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,291: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,291: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:01,301: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:01,302: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:01,302: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:04:01,302: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:04:01,302: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:01,302: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cadad0>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:01,315: INFO/MainProcess] Task handler.asynctasks.tasks.submittask[8b4fe620-35ac-4ef5-bed7-f452e60dd46e] succeeded in 1.12305399962s: None
+[2015-05-14 19:04:30,297: INFO/MainProcess] Received task: handler.asynctasks.tasks.submittask[59a0c6ed-14a7-4906-b01e-c3905a3c3cc9]
+[2015-05-14 19:04:30,297: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x3adda28> (args:('handler.asynctasks.tasks.submittask', '59a0c6ed-14a7-4906-b01e-c3905a3c3cc9', [u'29698', u'price', False], {}, {'utc': True, u'is_eager': False, 'chord': None, u'group': None, 'args': [u'29698', u'price', False], 'retries': 0, u'delivery_info': {u'priority': None, u'redelivered': False, u'routing_key': u'default', u'exchange': u'default'}, 'expires': None, u'hostname': 'celery@yz-log-ku-01', 'task': 'handler.asynctasks.tasks.submittask', 'callbacks': None, u'correlation_id': None, 'errbacks': None, 'timelimit': (None, None), 'taskset': None, 'kwargs': {}, 'eta': None, u'reply_to': None, 'id': '59a0c6ed-14a7-4906-b01e-c3905a3c3cc9', u'headers': {}}) kwargs:{})
+[2015-05-14 19:04:30,300: DEBUG/MainProcess] Task accepted: handler.asynctasks.tasks.submittask[59a0c6ed-14a7-4906-b01e-c3905a3c3cc9] pid:19577
+[2015-05-14 19:04:31,300: WARNING/Worker-26] in submittask:
+[2015-05-14 19:04:31,300: WARNING/Worker-26] 29698
+[2015-05-14 19:04:31,300: WARNING/Worker-26] price
+[2015-05-14 19:04:31,300: WARNING/Worker-26] False
+[2015-05-14 19:04:31,300: WARNING/Worker-26] []
+[2015-05-14 19:04:31,309: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,309: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,310: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,312: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,312: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,313: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,313: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,313: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>> for "0:Connection.Start"
+[2015-05-14 19:04:31,313: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,314: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,314: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,314: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,314: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,315: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,315: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,315: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,316: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,316: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,316: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,316: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,319: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,319: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0690>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,319: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,319: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,320: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,320: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,320: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,320: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,321: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,322: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,322: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,322: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,322: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,333: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,333: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,334: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,334: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,334: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,334: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x2b699fa46c50>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,347: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,347: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,348: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,350: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,350: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,350: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,350: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,351: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>> for "0:Connection.Start"
+[2015-05-14 19:04:31,351: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,352: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,353: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,353: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,353: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,353: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,354: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,354: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,354: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0a50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,354: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,354: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,355: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,355: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,355: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,355: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,356: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,356: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,357: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,357: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,357: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,367: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,367: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,368: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,368: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,368: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,368: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0790>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,382: WARNING/Worker-26] update
+[2015-05-14 19:04:31,382: WARNING/Worker-26] ('update', ['bi_marketing.demand_manage'], [('flag', 1)], {'where': ('=', 'id', 2093), 'location': '/data/mysql/sqldata//20150514//zhoudongju_bamXsp_29698_bamXsp_29698:1'})
+[2015-05-14 19:04:31,383: WARNING/Worker-26] pkpattern find pk name:
+[2015-05-14 19:04:31,383: WARNING/Worker-26] id
+[2015-05-14 19:04:31,383: WARNING/Worker-26] sql print:
+[2015-05-14 19:04:31,383: WARNING/Worker-26] id
+[2015-05-14 19:04:31,383: WARNING/Worker-26] =
+[2015-05-14 19:04:31,384: WARNING/Worker-26] 2093
+[2015-05-14 19:04:31,384: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,384: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,385: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,387: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,387: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,387: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,387: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,387: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>> for "0:Connection.Start"
+[2015-05-14 19:04:31,388: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,388: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,388: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,388: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,389: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,389: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,389: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,389: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,390: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,390: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,390: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,390: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,391: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,391: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0b90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,391: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,391: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,392: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,392: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,392: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,392: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,393: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,393: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,393: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,394: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,394: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,403: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,404: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,405: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,405: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,405: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,405: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc0c90>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,420: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,421: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,421: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,423: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,423: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,423: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,424: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,424: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>> for "0:Connection.Start"
+[2015-05-14 19:04:31,424: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,425: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,426: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,426: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,426: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,426: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,427: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,427: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,427: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc0f50>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,427: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,427: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,428: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,428: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,428: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,428: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,429: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,429: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,429: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,430: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,430: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,439: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,440: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,440: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,441: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,441: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,441: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca110>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,456: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,456: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,456: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,459: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,459: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,459: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,459: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,459: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>> for "0:Connection.Start"
+[2015-05-14 19:04:31,460: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,460: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,460: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,461: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,461: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,461: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,461: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,461: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,462: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,462: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,462: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,462: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,462: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,463: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca390>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,463: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,463: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,463: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,463: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,464: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,464: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,465: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,465: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,465: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,465: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,465: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,476: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,476: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,476: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,477: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,477: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,477: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca550>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,489: WARNING/Worker-26] in online sql is:
+[2015-05-14 19:04:31,489: WARNING/Worker-26] select delay from dba_stats.autosql_ddl_tasks where task_id='29698' and task_status not in (1) limit 1;
+[2015-05-14 19:04:31,489: WARNING/Worker-26] in online task_id is:
+[2015-05-14 19:04:31,489: WARNING/Worker-26] False
+[2015-05-14 19:04:31,490: WARNING/Worker-26] 0
+[2015-05-14 19:04:31,493: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,493: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,494: INFO/Worker-26] Connecting to 127.0.0.1:5672
+[2015-05-14 19:04:31,496: DEBUG/Worker-26] Processing 0:Connection.Start
+[2015-05-14 19:04:31,496: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,496: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,496: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,497: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>> for "0:Connection.Start"
+[2015-05-14 19:04:31,497: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,497: DEBUG/Worker-26] Processing 0:Connection.Tune
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>> for "0:Connection.Tune"
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] Creating a HeartbeatChecker: 580
+[2015-05-14 19:04:31,498: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,499: DEBUG/Worker-26] Processing 0:Connection.OpenOk
+[2015-05-14 19:04:31,499: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,499: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,499: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,499: DEBUG/Worker-26] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>> for "0:Connection.OpenOk"
+[2015-05-14 19:04:31,500: DEBUG/Worker-26] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cca150>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,500: DEBUG/Worker-26] Opening channel 1
+[2015-05-14 19:04:31,500: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,500: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,500: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:04:31,501: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,501: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,502: DEBUG/Worker-26] Processing 1:Channel.OpenOk
+[2015-05-14 19:04:31,502: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,502: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,502: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,503: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>> for "1:Channel.OpenOk"
+[2015-05-14 19:04:31,512: DEBUG/Worker-26] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:04:31,513: DEBUG/Worker-26] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:04:31,514: DEBUG/Worker-26] Processing use of oneshot callback
+[2015-05-14 19:04:31,514: DEBUG/Worker-26] 0 registered uses left
+[2015-05-14 19:04:31,514: DEBUG/Worker-26] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:04:31,514: DEBUG/Worker-26] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cca8d0>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:04:31,528: INFO/MainProcess] Task handler.asynctasks.tasks.submittask[59a0c6ed-14a7-4906-b01e-c3905a3c3cc9] succeeded in 1.22840099968s: None
+[2015-05-14 19:07:50,046: INFO/MainProcess] Received task: handler.asynctasks.tasks.submittask[a00f7f01-4ff5-4876-ab3e-d1121df4c071]
+[2015-05-14 19:07:50,047: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x3adda28> (args:('handler.asynctasks.tasks.submittask', 'a00f7f01-4ff5-4876-ab3e-d1121df4c071', [u'29949', u'ms', False], {}, {'utc': True, u'is_eager': False, 'chord': None, u'group': None, 'args': [u'29949', u'ms', False], 'retries': 0, u'delivery_info': {u'priority': None, u'redelivered': False, u'routing_key': u'default', u'exchange': u'default'}, 'expires': None, u'hostname': 'celery@yz-log-ku-01', 'task': 'handler.asynctasks.tasks.submittask', 'callbacks': None, u'correlation_id': None, 'errbacks': None, 'timelimit': (None, None), 'taskset': None, 'kwargs': {}, 'eta': None, u'reply_to': None, 'id': 'a00f7f01-4ff5-4876-ab3e-d1121df4c071', u'headers': {}}) kwargs:{})
+[2015-05-14 19:07:50,049: DEBUG/MainProcess] Task accepted: handler.asynctasks.tasks.submittask[a00f7f01-4ff5-4876-ab3e-d1121df4c071] pid:19563
+[2015-05-14 19:07:51,048: WARNING/Worker-12] in submittask:
+[2015-05-14 19:07:51,048: WARNING/Worker-12] 29949
+[2015-05-14 19:07:51,049: WARNING/Worker-12] ms
+[2015-05-14 19:07:51,049: WARNING/Worker-12] False
+[2015-05-14 19:07:51,049: WARNING/Worker-12] []
+[2015-05-14 19:07:51,052: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,052: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,052: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:07:51,055: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:07:51,055: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,055: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,055: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,055: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>> for "0:Connection.Start"
+[2015-05-14 19:07:51,056: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,056: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:07:51,056: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,056: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,057: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,057: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>> for "0:Connection.Tune"
+[2015-05-14 19:07:51,057: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:07:51,057: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>> for "0:Connection.OpenOk"
+[2015-05-14 19:07:51,058: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7250>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,059: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:07:51,059: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,059: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,059: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,060: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,060: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,061: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:07:51,061: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,061: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,061: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,061: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>> for "1:Channel.OpenOk"
+[2015-05-14 19:07:51,072: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,073: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:07:51,073: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,073: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,073: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,073: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc73d0>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:07:51,087: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,087: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,087: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:07:51,090: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:07:51,090: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,090: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,090: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,090: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>> for "0:Connection.Start"
+[2015-05-14 19:07:51,091: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,091: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:07:51,092: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,092: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,092: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,092: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>> for "0:Connection.Tune"
+[2015-05-14 19:07:51,092: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:07:51,093: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,093: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:07:51,093: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,093: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,093: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,094: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>> for "0:Connection.OpenOk"
+[2015-05-14 19:07:51,094: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7310>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,094: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:07:51,094: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,094: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,095: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,095: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,095: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,096: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:07:51,096: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,097: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,097: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,097: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>> for "1:Channel.OpenOk"
+[2015-05-14 19:07:51,107: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,108: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:07:51,108: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,108: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,108: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,109: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7590>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:07:51,123: WARNING/Worker-12] delete
+[2015-05-14 19:07:51,124: WARNING/Worker-12] ('delete', 'hangzhou.service_store_post', {'where': ('and', ('>', 'id', 0), ('<', 'id', 1)), 'location': '/data/mysql/sqldata//20150514//dongzerun_bamXsp_29949_bamXsp_29949:1'})
+[2015-05-14 19:07:51,124: WARNING/Worker-12] sql print:
+[2015-05-14 19:07:51,124: WARNING/Worker-12] id
+[2015-05-14 19:07:51,124: WARNING/Worker-12] >
+[2015-05-14 19:07:51,124: WARNING/Worker-12] 0
+[2015-05-14 19:07:51,125: WARNING/Worker-12] >
+[2015-05-14 19:07:51,125: WARNING/Worker-12] sql print:
+[2015-05-14 19:07:51,125: WARNING/Worker-12] id
+[2015-05-14 19:07:51,125: WARNING/Worker-12] <
+[2015-05-14 19:07:51,125: WARNING/Worker-12] 1
+[2015-05-14 19:07:51,125: WARNING/Worker-12] <
+[2015-05-14 19:07:51,126: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_error of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,126: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,126: INFO/Worker-12] Connecting to 127.0.0.1:5672
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] Processing 0:Connection.Start
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_start of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>> for "0:Connection.Start"
+[2015-05-14 19:07:51,129: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,130: DEBUG/Worker-12] Processing 0:Connection.Tune
+[2015-05-14 19:07:51,130: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,130: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,130: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,131: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_tune of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>> for "0:Connection.Tune"
+[2015-05-14 19:07:51,131: DEBUG/Worker-12] Creating a HeartbeatChecker: 580
+[2015-05-14 19:07:51,131: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] Processing 0:Connection.OpenOk
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] Calling <bound method BlockingConnection._on_connection_open of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>> for "0:Connection.OpenOk"
+[2015-05-14 19:07:51,132: DEBUG/Worker-12] Added: {'callback': <bound method BlockingConnection._on_connection_closed of <pika.adapters.blocking_connection.BlockingConnection object at 0x3cc7910>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,133: DEBUG/Worker-12] Opening channel 1
+[2015-05-14 19:07:51,133: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_close of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,133: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_getempty of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,133: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_cancel of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': False, 'arguments': None}
+[2015-05-14 19:07:51,133: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,134: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,135: DEBUG/Worker-12] Processing 1:Channel.OpenOk
+[2015-05-14 19:07:51,135: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,135: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,135: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,135: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>> for "1:Channel.OpenOk"
+[2015-05-14 19:07:51,146: DEBUG/Worker-12] Added: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 1}
+[2015-05-14 19:07:51,147: DEBUG/Worker-12] Processing 1:Exchange.DeclareOk
+[2015-05-14 19:07:51,147: DEBUG/Worker-12] Processing use of oneshot callback
+[2015-05-14 19:07:51,147: DEBUG/Worker-12] 0 registered uses left
+[2015-05-14 19:07:51,147: DEBUG/Worker-12] Removing callback #0: {'callback': <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>>, 'only': None, 'one_shot': True, 'arguments': None, 'calls': 0}
+[2015-05-14 19:07:51,147: DEBUG/Worker-12] Calling <bound method BlockingChannel._on_rpc_complete of <pika.adapters.blocking_connection.BlockingChannel object at 0x3cc7890>> for "1:Exchange.DeclareOk"
+[2015-05-14 19:07:51,161: INFO/MainProcess] Task handler.asynctasks.tasks.submittask[a00f7f01-4ff5-4876-ab3e-d1121df4c071] succeeded in 1.11261000112s: None
